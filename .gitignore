@@ -1,7 +1,9 @@
 node_modules/
 dist/
+public/
 .DS_Store
 .superpowers/
 .vscode/
 *.log
 *.pid
+.vercel/
