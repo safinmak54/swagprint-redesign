@@ -1,0 +1,1124 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#d4f0e5",
+                    "on-background": "#1a2a3a",
+                    "surface-variant": "#d6e2da",
+                    "surface-dim": "#d6ddd9",
+                    "surface-tint": "#3D5167",
+                    "on-secondary-container": "#3D5167",
+                    "secondary-fixed-dim": "#b0c4b8",
+                    "surface-container": "#e8eeeb",
+                    "inverse-surface": "#1a2a3a",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#8ECAB0",
+                    "secondary-container": "#d6e2da",
+                    "outline": "#6b7d74",
+                    "on-surface": "#1a2a3a",
+                    "surface-container-low": "#f0f4f2",
+                    "surface": "#f5f7f6",
+                    "primary-fixed-dim": "#6ba3d6",
+                    "inverse-on-surface": "#e8eeeb",
+                    "on-surface-variant": "#3D5167",
+                    "on-primary-fixed-variant": "#2a3d4f",
+                    "on-primary-container": "#8ECAB0",
+                    "primary-container": "#3D5167",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#3D5167",
+                    "on-tertiary-fixed": "#0a1628",
+                    "on-tertiary-container": "#8ECAB0",
+                    "background": "#f5f7f6",
+                    "on-primary-fixed": "#0a1628",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#5a7068",
+                    "tertiary-container": "#3D5167",
+                    "secondary-fixed": "#d6e2da",
+                    "tertiary": "#2a3d4f",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "primary": "#3D5167",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e0e8e4",
+                    "primary-fixed": "#d6e2da",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#d6e2da",
+                    "on-secondary-fixed": "#1a2a3a",
+                    "inverse-primary": "#8ECAB0",
+                    "on-tertiary-fixed-variant": "#2a3d4f",
+                    "surface-bright": "#f5f7f6",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c5d0ca"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-1 { font-variation-settings: 'FILL' 1; }
+        .shadow-ambient-sm { box-shadow: 0 8px 30px rgba(11, 29, 45, 0.04); }
+        .shadow-ambient { box-shadow: 0 20px 50px rgba(11, 29, 45, 0.05); }
+        .shadow-ambient-lg { box-shadow: 0 30px 60px rgba(11, 29, 45, 0.06); }
+        .btn-primary { transition: background 0.3s ease, transform 0.2s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #2a3d4f, #3D5167) !important; opacity: 1 !important; transform: translateY(-1px); }
+        .input-ghost { transition: all 0.2s ease; }
+        .input-ghost:focus { background-color: #ffffff !important; box-shadow: 0 0 0 1px rgba(16, 50, 207, 0.3) !important; border-color: transparent !important; }
+        @keyframes scroll-up {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .logo-scroll-track { display: flex; width: max-content; animation: scroll-left 25s linear infinite; }
+        .logo-scroll-track:hover { animation-play-state: paused; }
+        .brand-grid img { transition: filter 0.4s ease, opacity 0.4s ease; }
+        .brand-grid img:hover { filter: grayscale(0); opacity: 1; }
+        .nav-menu { position: relative; }
+        .nav-cursor { position: absolute; bottom: 0; height: 2px; background: #1032cf; border-radius: 1px; transition: left 0.25s ease, width 0.25s ease, opacity 0.2s ease; opacity: 0; pointer-events: none; }
+        .nav-menu:hover .nav-cursor { opacity: 1; }
+        .nav-item { position: relative; transition: color 0.2s ease, background-color 0.2s ease; }
+        .nav-item:hover { background-color: rgba(16, 50, 207, 0.06); }
+        .testimonial-col { overflow: hidden; max-height: 520px; mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); }
+        .testimonial-scroll { animation: scroll-up var(--scroll-duration, 20s) linear infinite; }
+        .testimonial-scroll:hover { animation-play-state: paused; }
+
+        /* Scroll-triggered animations */
+        .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-up.delay-1 { transition-delay: 0.1s; }
+        .fade-up.delay-2 { transition-delay: 0.2s; }
+        .fade-up.delay-3 { transition-delay: 0.3s; }
+        .fade-up.delay-4 { transition-delay: 0.4s; }
+        .fade-up.delay-5 { transition-delay: 0.5s; }
+        .fade-up.delay-6 { transition-delay: 0.6s; }
+        .fade-up.delay-7 { transition-delay: 0.7s; }
+
+        .slide-in-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.9s ease, transform 0.9s ease; }
+        .slide-in-left.visible { opacity: 1; transform: translateX(0); }
+
+        .slide-in-right { opacity: 0; transform: translateX(60px); transition: opacity 0.9s ease, transform 0.9s ease; }
+        .slide-in-right.visible { opacity: 1; transform: translateX(0); }
+
+        /* Hero entrance */
+        .hero-fade { opacity: 0; transform: translateY(30px); animation: heroEntrance 1s ease forwards; }
+        .hero-fade.d1 { animation-delay: 0.2s; }
+        .hero-fade.d2 { animation-delay: 0.4s; }
+        .hero-fade.d3 { animation-delay: 0.6s; }
+        .hero-fade.d4 { animation-delay: 0.8s; }
+        @keyframes heroEntrance {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero rotating word */
+        #hero-rotating-word { display: inline-block; position: relative; clip-path: inset(-10% -5% -20% -5%); }
+        .hero-word-current, .hero-word-next {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hero-word-exit-up { transform: translateY(-110%); opacity: 0; }
+        .hero-word-enter-below { transform: translateY(110%); opacity: 0; }
+        .hero-word-enter-active { transform: translateY(0); opacity: 1; }
+
+        /* Trust bar stagger */
+        .trust-item { opacity: 0; transform: translateX(-20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .trust-item.visible { opacity: 1; transform: translateX(0); }
+        .trust-item.t1 { transition-delay: 0.1s; }
+        .trust-item.t2 { transition-delay: 0.3s; }
+        .trust-item.t3 { transition-delay: 0.5s; }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-bottom-6{bottom:-1.5rem}.-left-8{left:-2rem}.-right-6{right:-1.5rem}.bottom-8{bottom:2rem}.left-4{left:1rem}.left-8{left:2rem}.top-0{top:0px}.top-12{top:3rem}.top-4{top:1rem}.top-6{top:1.5rem}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-2{margin-right:0.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-\[4\/3\]{aspect-ratio:4/3}.aspect-\[4\/5\]{aspect-ratio:4/5}.aspect-square{aspect-ratio:1 / 1}.h-10{height:2.5rem}.h-12{height:3rem}.h-2\.5{height:0.625rem}.h-5{height:1.25rem}.h-full{height:100%}.w-10{width:2.5rem}.w-12{width:3rem}.w-2\.5{width:0.625rem}.w-5{width:1.25rem}.w-64{width:16rem}.w-full{width:100%}.max-w-[1400px]{max-width:80rem}.max-w-\[240px\]{max-width:240px}.max-w-lg{max-width:32rem}.flex-1{flex:1 1 0%}.rotate-12{--tw-rotate:12deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-items-center{justify-items:center}.gap-1{gap:0.25rem}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-x-12{column-gap:3rem}.gap-y-10{row-gap:2.5rem}.-space-x-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(-0.375rem * var(--tw-space-x-reverse));margin-left:calc(-0.375rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.scroll-smooth{scroll-behavior:smooth}.rounded{border-radius:1rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[2\.2rem\]{border-radius:2.2rem}.rounded-\[2\.5rem\]{border-radius:2.5rem}.rounded-\[2rem\]{border-radius:2rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:3rem}.rounded-l-full{border-top-left-radius:9999px;border-bottom-left-radius:9999px}.rounded-r-full{border-top-right-radius:9999px;border-bottom-right-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-t{border-top-width:1px}.border-none{border-style:none}.border-outline-variant\/10{border-color:rgb(197 197 216 / 0.1)}.border-outline-variant\/20{border-color:rgb(197 197 216 / 0.2)}.border-outline-variant\/30{border-color:rgb(197 197 216 / 0.3)}.border-primary{--tw-border-opacity:1;border-color:rgb(16 50 207 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-white\/30{border-color:rgb(255 255 255 / 0.3)}.bg-\[\#A5F3E3\]{--tw-bg-opacity:1;background-color:rgb(165 243 227 / var(--tw-bg-opacity, 1))}.bg-\[\#D1FAE5\]{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-\[\#E0E7FF\]{--tw-bg-opacity:1;background-color:rgb(224 231 255 / var(--tw-bg-opacity, 1))}.bg-\[\#f5f5f7\]{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-error{--tw-bg-opacity:1;background-color:rgb(186 26 26 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(16 50 207 / var(--tw-bg-opacity, 1))}.bg-primary-fixed-dim{--tw-bg-opacity:1;background-color:rgb(187 195 255 / var(--tw-bg-opacity, 1))}.bg-secondary-fixed-dim{--tw-bg-opacity:1;background-color:rgb(183 200 222 / var(--tw-bg-opacity, 1))}.bg-surface{--tw-bg-opacity:1;background-color:rgb(248 249 255 / var(--tw-bg-opacity, 1))}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(218 233 255 / var(--tw-bg-opacity, 1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(238 244 255 / var(--tw-bg-opacity, 1))}.bg-surface-container-lowest{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-surface-variant{--tw-bg-opacity:1;background-color:rgb(211 228 251 / var(--tw-bg-opacity, 1))}.bg-tertiary-fixed-dim{--tw-bg-opacity:1;background-color:rgb(152 203 255 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/80{background-color:rgb(255 255 255 / 0.8)}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-black\/60{--tw-gradient-from:rgb(0 0 0 / 0.6) var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-primary{--tw-gradient-from:#1032cf var(--tw-gradient-from-position);--tw-gradient-to:rgb(16 50 207 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-primary-container{--tw-gradient-to:#1032cf var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-1{padding:0.25rem}.p-10{padding:2.5rem}.p-12{padding:3rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-12{padding-left:3rem;padding-right:3rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-0\.5{padding-bottom:0.125rem}.pb-1{padding-bottom:0.25rem}.pt-32{padding-top:8rem}.text-left{text-align:left}.text-center{text-align:center}.font-body{font-family:Inter}.font-headline{font-family:Plus Jakarta Sans}.font-label{font-family:Inter}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[8px\]{font-size:8px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.not-italic{font-style:normal}.leading-\[0\.95\]{line-height:0.95}.leading-\[1\.1\]{line-height:1.1}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-tight{letter-spacing:-0.025em}.tracking-tighter{letter-spacing:-0.05em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-\[\#004D40\]{--tw-text-opacity:1;color:rgb(0 77 64 / var(--tw-text-opacity, 1))}.text-\[\#059669\]{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-\[\#FFB300\]{--tw-text-opacity:1;color:rgb(255 179 0 / var(--tw-text-opacity, 1))}.text-on-primary{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-on-surface{--tw-text-opacity:1;color:rgb(11 29 45 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(68 70 85 / var(--tw-text-opacity, 1))}.text-outline{--tw-text-opacity:1;color:rgb(117 118 135 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(16 50 207 / var(--tw-text-opacity, 1))}.text-secondary{--tw-text-opacity:1;color:rgb(80 96 115 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/80{color:rgb(255 255 255 / 0.8)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-40{opacity:0.4}.opacity-75{opacity:0.5}.mix-blend-multiply{mix-blend-mode:multiply}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-primary\/20{--tw-shadow-color:rgb(16 50 207 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.duration-700{transition-duration:700ms}.placeholder\:text-outline-variant::placeholder{--tw-text-opacity:1;color:rgb(197 197 216 / var(--tw-text-opacity, 1))}.hover\:bg-surface-container-low:hover{--tw-bg-opacity:1;background-color:rgb(238 244 255 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(16 50 207 / var(--tw-text-opacity, 1))}.hover\:opacity-90:hover{opacity:0.9}.hover\:grayscale-0:hover{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-primary\/30:focus{--tw-ring-color:rgb(16 50 207 / 0.3)}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 768px){.md\:flex{display:flex}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:px-16{padding-left:4rem;padding-right:4rem}.md\:px-24{padding-left:6rem;padding-right:6rem}.md\:text-left{text-align:left}}@media (min-width: 1024px){.lg\:col-span-4{grid-column:span 4 / span 4}.lg\:col-span-8{grid-column:span 8 / span 8}.lg\:flex{display:flex}.lg\:aspect-auto{aspect-ratio:auto}.lg\:w-auto{width:auto}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:grid-cols-6{grid-template-columns:repeat(6, minmax(0, 1fr))}.lg\:flex-row{flex-direction:row}.lg\:px-24{padding-left:6rem;padding-right:6rem}.lg\:py-28{padding-top:7rem;padding-bottom:7rem}.lg\:text-7xl{font-size:4.5rem;line-height:1}.lg\:text-8xl{font-size:6rem;line-height:1}}</style></head>
+<body class="bg-surface font-body text-on-surface antialiased" data-mode="connect">
+<!-- 1. Header -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md">
+<!-- Top utility bar -->
+<div class="bg-surface-container-low px-8 py-1.5 text-[10px] font-bold tracking-wider text-secondary flex justify-between items-center">
+<div>Free Shipping on All Orders | Contact Us: 1.800.346.7890</div>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="hover:text-primary transition-colors" href="#">Track Order</a>
+</div>
+</div>
+<!-- Main nav -->
+<nav class="flex items-center px-8 py-3">
+<a href="#"><img src="logos/SwagPrint-Horizontal-Logo-RGB-Dark.png" alt="SwagPrint" class="h-7 w-auto object-contain"></a>
+<div class="hidden lg:flex items-center gap-0 ml-6">
+<!-- Apparel -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Custom Apparel <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">checkroom</span> T-Shirts</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">dry_cleaning</span> Polos</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">apparel</span> Hoodies &amp; Sweatshirts</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">styler</span> Jackets</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">headphones</span> Hats &amp; Caps</a>
+</div>
+</div>
+</div>
+<!-- Promotional -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Promotional Products <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">edit</span> Pens &amp; Writing</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">local_drink</span> Drinkware</a>
+<a href="category.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">local_cafe</span> Can Coolers</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">shopping_bag</span> Bags &amp; Totes</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">sticky_note_2</span> Stickers &amp; Labels</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">devices</span> Tech Accessories</a>
+</div>
+</div>
+</div>
+<!-- Corporate Gifts -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Corporate Gifts <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">inventory_2</span> Gift Boxes</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">waving_hand</span> Welcome Kits</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">workspace_premium</span> Executive Gifts</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">holiday_village</span> Holiday Gifts</a>
+</div>
+</div>
+</div>
+<!-- Custom Swag -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Marketing Material <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">print</span> Brochures &amp; Flyers</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">flag</span> Banners &amp; Signs</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">contact_mail</span> Business Cards</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">folder_open</span> Folders &amp; Inserts</a>
+</div>
+</div>
+</div>
+<!-- Groups & Events -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Groups &amp; Events <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">groups</span> Team Stores</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">celebration</span> Events &amp; Conferences</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">school</span> Schools &amp; Clubs</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">volunteer_activism</span> Nonprofits</a>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 ml-auto">
+<!-- Search icon + expandable search -->
+<div class="relative" id="search-wrapper">
+<button id="search-toggle" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-xl">search</span>
+</button>
+<div id="search-overlay" class="hidden absolute right-0 top-full mt-2 w-80 bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/30 p-3 z-50">
+<div class="flex items-center gap-2 bg-surface-container-lowest rounded-xl px-4 py-2.5 border border-surface-variant/20">
+<span class="material-symbols-outlined text-lg text-outline">search</span>
+<input id="search-input" class="bg-transparent border-none focus:outline-none text-sm w-full placeholder:text-outline-variant" placeholder="Search products, brands..." type="text">
+</div>
+<div class="mt-2 px-2">
+<p class="text-[10px] text-secondary font-medium uppercase tracking-wider mb-2">Popular</p>
+<div class="flex flex-wrap gap-1.5">
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Custom Tees</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Tote Bags</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Water Bottles</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Pens</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Caps</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Cart -->
+<button class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all relative">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary text-white text-[9px] font-bold rounded-full flex items-center justify-center">0</span>
+</button>
+<!-- Account -->
+<button class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-xl">account_circle</span>
+</button>
+<!-- Mobile menu toggle -->
+<button id="mobile-menu-toggle" class="lg:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-xl">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-24">
+<!-- 2. Main Banner (Hero Section) -->
+<section class="relative px-4 md:px-8 lg:px-16 py-6 lg:py-10 overflow-hidden">
+<div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16">
+<div class="flex-1 z-10">
+<div class="hero-fade d1 inline-flex items-center gap-3 px-4 py-2 rounded-full bg-surface-container-high text-primary font-bold text-[10px] tracking-widest uppercase mb-6">
+<div class="flex -space-x-2">
+<img src="https://i.pravatar.cc/40?img=1" alt="" class="w-6 h-6 rounded-full border-2 border-white object-cover">
+<img src="https://i.pravatar.cc/40?img=5" alt="" class="w-6 h-6 rounded-full border-2 border-white object-cover">
+<img src="https://i.pravatar.cc/40?img=8" alt="" class="w-6 h-6 rounded-full border-2 border-white object-cover">
+<img src="https://i.pravatar.cc/40?img=12" alt="" class="w-6 h-6 rounded-full border-2 border-white object-cover">
+<img src="https://i.pravatar.cc/40?img=32" alt="" class="w-6 h-6 rounded-full border-2 border-white object-cover">
+</div>
+1 Million + Happy Customers
+</div>
+<h1 class="hero-fade d2 font-headline text-5xl lg:text-[5.5rem] font-extrabold tracking-tighter text-on-surface mb-8 leading-[0.95]">
+Your vision, <br><span class="text-primary italic"><span id="hero-rotating-word" class="inline-block relative" style="vertical-align: baseline; line-height: inherit;"><span class="hero-word-current">printed</span><span class="invisible pointer-events-none" aria-hidden="true" style="display:inline-block;">personalized</span></span> perfectly.</span>
+</h1>
+<p class="hero-fade d3 text-xl text-secondary mb-10 max-w-xl leading-relaxed">
+                        Custom high-end apparel and promotional goods curated for brands that demand excellence. From boutique startups to global enterprises.
+                    </p>
+<div class="hero-fade d4 flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-bold flex items-center gap-2 btn-primary transition-all shadow-ambient">
+                            Get Started <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="bg-surface-container-highest text-on-secondary-container px-10 py-4 rounded-full font-bold hover:bg-surface-container-low transition-all">
+                            View Lookbook
+                        </button>
+</div>
+</div>
+<div class="flex-[1.2] relative w-full lg:w-auto">
+<div class="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5">
+<img alt="Custom Swag Box with Branded Merchandise" class="w-full h-auto object-contain saturate-[1.15] contrast-[1.05]" src="logos/Hero.jpeg">
+</div>
+<div class="absolute -bottom-6 -right-6 bg-[#0a1628] backdrop-blur-md p-6 rounded-2xl shadow-ambient-lg max-w-[240px] z-10">
+<span class="text-[9px] font-black text-blue-300 uppercase tracking-[0.2em] mb-1 block">Custom Kits</span>
+<h4 class="font-bold text-white text-base mb-1">Build Your Swag Box</h4>
+<p class="text-xs text-white/50">Curate branded kits for any occasion.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Trust Bar -->
+<section class="py-8 bg-white">
+<div class="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-16 grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center text-center">
+<div class="trust-item t1 flex flex-col md:flex-row items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<p class="font-bold text-sm">No Minimums</p>
+<p class="text-[10px] text-secondary">Perfect for any order size.</p>
+</div>
+</div>
+<div class="trust-item t2 flex flex-col md:flex-row items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div>
+<p class="font-bold text-sm">US-Based Support</p>
+<p class="text-[10px] text-secondary">Expert help when you need it.</p>
+</div>
+</div>
+<div class="trust-item t2 flex flex-col md:flex-row items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div>
+<p class="font-bold text-sm">Fast Turnaround</p>
+<p class="text-[10px] text-secondary">Get your gear when you need it.</p>
+</div>
+</div>
+<div class="trust-item t3 flex flex-col md:flex-row items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<p class="font-bold text-sm">Free Design Review</p>
+<p class="text-[10px] text-secondary">Our pros check every order.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3b. Auto-Scrolling Logo Carousel -->
+<section class="pt-8 pb-2 bg-surface">
+<div class="max-w-[1400px] mx-auto text-center mb-4">
+<h2 class="font-headline text-2xl font-extrabold tracking-tighter">Brands That Trust Us</h2>
+</div>
+<div class="relative mx-auto max-w-[1400px] overflow-hidden">
+<div class="logo-scroll-track" style="animation-duration: 30s;">
+  <div class="flex items-center gap-14 px-8">
+    <img src="logos/Coca-Cola.png" alt="Coca-Cola" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Uber.png" alt="Uber" class="h-16 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Spotify.png" alt="Spotify" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Samsung.png" alt="Samsung" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Amazon.png" alt="Amazon" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Facebook.png" alt="Facebook" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Nike.png" alt="Nike" class="h-10 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Microsoft.png" alt="Microsoft" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Google.png" alt="Google" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Netflix.png" alt="Netflix" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Yelp.png" alt="Yelp" class="h-9 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/eBay.png" alt="eBay" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Pepsi.png" alt="Pepsi" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Apple.png" alt="Apple" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Disney.png" alt="Disney" class="h-24 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Orangetheory-Fitness.png" alt="Orangetheory Fitness" class="h-14 w-auto object-contain grayscale opacity-60 shrink-0">
+  </div>
+  <!-- Duplicate for seamless loop -->
+  <div class="flex items-center gap-14 px-8">
+    <img src="logos/Coca-Cola.png" alt="Coca-Cola" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Uber.png" alt="Uber" class="h-16 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Spotify.png" alt="Spotify" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Samsung.png" alt="Samsung" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Amazon.png" alt="Amazon" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Facebook.png" alt="Facebook" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Nike.png" alt="Nike" class="h-10 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Microsoft.png" alt="Microsoft" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Google.png" alt="Google" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Netflix.png" alt="Netflix" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Yelp.png" alt="Yelp" class="h-9 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/eBay.png" alt="eBay" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Pepsi.png" alt="Pepsi" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Apple.png" alt="Apple" class="h-20 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Disney.png" alt="Disney" class="h-24 w-auto object-contain grayscale opacity-60 shrink-0">
+    <img src="logos/Orangetheory-Fitness.png" alt="Orangetheory Fitness" class="h-14 w-auto object-contain grayscale opacity-60 shrink-0">
+  </div>
+</div>
+<div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-surface to-transparent z-10"></div>
+<div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-surface to-transparent z-10"></div>
+</div>
+</section>
+<!-- 4. Shop By Category -->
+<section class="pt-10 pb-20 px-4 md:px-8 lg:px-16">
+<div class="max-w-[1400px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<span class="text-[11px] font-black text-primary uppercase tracking-[0.2em] mb-4 block">Curated Selections</span>
+<h2 class="font-headline text-3xl lg:text-4xl font-extrabold tracking-tighter">Shop by Category</h2>
+</div>
+<a class="text-primary font-bold text-sm border-b-2 border-primary pb-1 hover:opacity-70 transition-all" href="#">Explore All Categories</a>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-auto">
+<!-- Apparel — Featured -->
+<div class="fade-up delay-1 group relative col-span-2 aspect-[16/9] rounded-[2rem] overflow-hidden bg-surface-container-high">
+<img alt="Apparel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="Category Images/Apperal.png">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="text-white font-headline font-extrabold text-2xl tracking-tight">Apparel</h3>
+<p class="text-white/70 text-sm mt-1">Custom tees, hoodies, polos & more</p>
+</div>
+</div>
+<!-- Wristbands -->
+<div class="fade-up delay-2 group relative aspect-square rounded-[2rem] overflow-hidden bg-surface-container-high">
+<img alt="Wristbands" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="Category Images/Lanyard.png">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+<h3 class="absolute bottom-6 left-6 text-white font-bold text-lg">Wristbands</h3>
+</div>
+<!-- Lanyards -->
+<div class="fade-up delay-3 group relative aspect-square rounded-[2rem] overflow-hidden bg-surface-container-high">
+<img alt="Lanyards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="Category Images/Wristband.png">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+<h3 class="absolute bottom-6 left-6 text-white font-bold text-lg">Lanyards</h3>
+</div>
+<!-- Can Coolers -->
+<div class="fade-up delay-4 group relative aspect-square rounded-[2rem] overflow-hidden bg-surface-container-high">
+<img alt="Can Coolers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="Category Images/Can Cooler.png">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+<h3 class="absolute bottom-6 left-6 text-white font-bold text-lg">Can Coolers</h3>
+</div>
+<!-- PVC Cards -->
+<div class="fade-up delay-5 group relative aspect-square rounded-[2rem] overflow-hidden bg-surface-container-high">
+<img alt="ID Cards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="Category Images/PVC Cards.png">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+<h3 class="absolute bottom-6 left-6 text-white font-bold text-lg">ID Cards</h3>
+</div>
+<!-- Tote Bags — Featured -->
+<div class="fade-up delay-1 group relative col-span-2 aspect-[16/9] rounded-[2rem] overflow-hidden bg-surface-container-high">
+<img alt="Tote Bags" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="Category Images/Tote Bags.jpeg">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="text-white font-headline font-extrabold text-2xl tracking-tight">Tote Bags</h3>
+<p class="text-white/70 text-sm mt-1">Canvas, cotton & eco-friendly options</p>
+</div>
+</div>
+<!-- Balloons -->
+<div class="fade-up delay-2 group relative aspect-square rounded-[2rem] overflow-hidden bg-surface-container-high">
+<img alt="Balloons" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="Category Images/Balloons.png">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+<h3 class="absolute bottom-6 left-6 text-white font-bold text-lg">Balloons</h3>
+</div>
+<!-- Tattoos -->
+<div class="fade-up delay-3 group relative aspect-square rounded-[2rem] overflow-hidden bg-surface-container-high">
+<img alt="Tattoos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="Category Images/Tattoo.png">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+<h3 class="absolute bottom-6 left-6 text-white font-bold text-lg">Tattoos</h3>
+</div>
+<!-- Buttons -->
+<div class="fade-up delay-4 group relative aspect-square rounded-[2rem] overflow-hidden bg-surface-container-high">
+<img alt="Buttons" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="Category Images/Buttons.png">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+<h3 class="absolute bottom-6 left-6 text-white font-bold text-lg">Buttons</h3>
+</div>
+<!-- Patches -->
+<div class="fade-up delay-5 group relative aspect-square rounded-[2rem] overflow-hidden bg-surface-container-high">
+<img alt="Patches" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1618914729549-2c9afb0558df?w=600&q=80&fit=crop">
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+<h3 class="absolute bottom-6 left-6 text-white font-bold text-lg">Patches</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Shop by Brand -->
+<section class="py-10 px-4 md:px-8 lg:px-16 bg-white">
+<div class="max-w-[1400px] mx-auto">
+<h2 class="font-headline text-3xl font-extrabold tracking-tighter mb-6 text-center">Shop by Brand</h2>
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-y-4 gap-x-8 items-center justify-items-center">
+<!-- Row 1 -->
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/Nike.png" alt="Nike" class="h-12 w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/The North Face.png" alt="The North Face" class="h-[76px] w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/Carhartt.png" alt="Carhartt" class="h-[76px] w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/Comfort Colors.png" alt="Comfort Colors" class="h-[92px] w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/Adidas.png" alt="Adidas" class="h-14 w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/Stanley.png" alt="Stanley" class="h-[76px] w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/JBL.png" alt="JBL" class="h-12 w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<!-- Row 2 -->
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/Gildan.png" alt="Gildan" class="h-12 w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/Champion.png" alt="Champion" class="h-8 w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/New Era.png" alt="New Era" class="h-[76px] w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/Richardson.png" alt="Richardson" class="h-[76px] w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/OGIO.png" alt="OGIO" class="h-[92px] w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/Koozie.png" alt="Koozie" class="h-[92px] w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+<a href="#" class="group flex items-center justify-center h-16 w-full">
+<img src="logos/YETI.svg.png" alt="YETI" class="h-7 w-auto object-contain grayscale opacity-60 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+</a>
+</div>
+</div>
+</section>
+<!-- 6. Most Popular -->
+<section class="py-20 px-4 md:px-8 lg:px-16">
+<div class="max-w-[1400px] mx-auto">
+<div class="flex justify-between items-end mb-16">
+<h2 class="font-headline text-4xl lg:text-5xl font-extrabold tracking-tighter">Most Popular</h2>
+<a class="text-primary font-bold text-sm border-b-2 border-primary pb-1 hover:opacity-70 transition-all" href="#">Shop All Trending</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="fade-up delay-1 group">
+<div class="aspect-[4/5] bg-[#f5f5f7] rounded-2xl overflow-hidden mb-6 relative">
+<img alt="The 8th Layer Heavyweight Tee" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500" src="logos/The Atelier Heavyweight Tee.png">
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Trending</span>
+</div>
+</div>
+<h4 class="font-bold text-on-surface mb-1">The 8th Layer Heavyweight Tee</h4>
+<p class="text-[11px] text-secondary mb-2 uppercase font-semibold">12 Colors Available</p>
+<p class="text-primary font-bold">$18.90 <span class="text-secondary text-xs font-normal">/ unit</span></p>
+</div>
+<!-- Product 2 -->
+<div class="fade-up delay-2 group">
+<div class="aspect-[4/5] bg-[#f5f5f7] rounded-2xl overflow-hidden mb-6 relative">
+<img alt="Insulated Steel Vessel" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500" src="logos/Insulated Steel Vessel.png">
+</div>
+<h4 class="font-bold text-on-surface mb-1">Insulated Steel Vessel</h4>
+<p class="text-[11px] text-secondary mb-2 uppercase font-semibold">8 Colors Available</p>
+<p class="text-primary font-bold">$24.50 <span class="text-secondary text-xs font-normal">/ unit</span></p>
+</div>
+<!-- Product 3 -->
+<div class="fade-up delay-3 group">
+<div class="aspect-[4/5] bg-[#f5f5f7] rounded-2xl overflow-hidden mb-6 relative">
+<img alt="Canvas Grocery Tote" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500" src="logos/Canvas Grocery Tote.png">
+</div>
+<h4 class="font-bold text-on-surface mb-1">Canvas Grocery Tote</h4>
+<p class="text-[11px] text-secondary mb-2 uppercase font-semibold">6 Colors Available</p>
+<p class="text-primary font-bold">$12.75 <span class="text-secondary text-xs font-normal">/ unit</span></p>
+</div>
+<!-- Product 4 -->
+<div class="fade-up delay-4 group">
+<div class="aspect-[4/5] bg-[#f5f5f7] rounded-2xl overflow-hidden mb-6 relative">
+<img alt="Ballpoint Pen" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500" src="logos/Ballpoint Pen.png">
+</div>
+<h4 class="font-bold text-on-surface mb-1">Ballpoint Pen</h4>
+<p class="text-[11px] text-secondary mb-2 uppercase font-semibold">10 Colors Available</p>
+<p class="text-primary font-bold">$3.50 <span class="text-secondary text-xs font-normal">/ unit</span></p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Design your identity (Studio Lab) -->
+<section class="py-28 bg-primary text-white overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-75"></div>
+<div class="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-16 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="slide-in-left">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] mb-8">
+<span class="material-symbols-outlined text-xs">auto_awesome</span> New: Studio Lab 2.0
+                    </span>
+<h2 class="font-headline text-4xl lg:text-5xl font-extrabold tracking-tighter mb-8 leading-[1.1]">
+                        See it before you make it.
+                    </h2>
+<p class="text-white/80 text-lg mb-12 max-w-lg leading-relaxed">
+                        Our Studio Lab allows you to visualize your brand on any product with photorealistic 3D rendering. Upload assets, adjust typography, and see high-fidelity previews before you commit.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-white/90 hover:scale-[1.02] transition-all shadow-ambient">Open Design Lab</button>
+<button class="border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all">Book a Demo</button>
+</div>
+</div>
+<div class="slide-in-right relative">
+<div class="bg-white/10 backdrop-blur-xl p-1 rounded-[2.5rem] shadow-ambient-lg border border-white/10">
+<div class="bg-[#1e1e1e] rounded-[2.2rem] overflow-hidden aspect-[5/3] flex flex-col text-on-surface relative">
+<div class="flex items-center gap-2 px-6 py-3 bg-[#2a2a2a]">
+<div class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#28c840]"></div>
+<span class="ml-3 text-white/40 text-[10px] font-medium tracking-wide">SwagPrint Design Lab</span>
+</div>
+<img src="logos/Design Lab.jpg" alt="SwagPrint Design Lab Interface" class="w-full h-full object-cover">
+</div>
+</div>
+<div class="absolute -bottom-5 -right-5 bg-[#8ECAB0] text-[#0a1628] p-4 rounded-2xl shadow-ambient-lg flex items-center gap-4 border border-white/20 z-20">
+<span class="material-symbols-outlined text-3xl">3d_rotation</span>
+<div class="text-left">
+<p class="text-[9px] font-black uppercase tracking-wider">Photorealistic</p>
+<p class="text-xs font-bold leading-none">3D Previews</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. What Customers Say -->
+<section class="py-24 px-4 md:px-8 lg:px-16 bg-white">
+<div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
+<div class="lg:col-span-4">
+<h2 class="font-headline text-4xl lg:text-5xl font-extrabold tracking-tighter mb-8">What Our Customers Say</h2>
+<p class="text-secondary text-lg mb-10 leading-relaxed">Join over <span class="count-up font-bold text-on-surface" data-target="1000000" data-prefix="" data-suffix="">0</span> brands that trust us with their physical representation.</p>
+<div class="flex items-center gap-1 text-[#FFB300] mb-2">
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+</div>
+<p class="text-sm font-black uppercase tracking-widest mb-10"><span class="count-up" data-target="4.9" data-decimals="1">0</span>/5 Average Rating</p>
+<div class="grid grid-cols-3 gap-3 max-w-sm">
+<div class="rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center overflow-hidden aspect-[3/2]">
+<img src="Trust Logos/BBB.png" alt="BBB" class="w-full h-full object-contain scale-110">
+</div>
+<div class="rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center p-2 aspect-[3/2]">
+<img src="Trust Logos/Inc 500.png" alt="Inc. 5000" class="max-h-full max-w-full object-contain">
+</div>
+<div class="rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center overflow-hidden aspect-[3/2]">
+<img src="Trust Logos/Google.png" alt="Google Reviews" class="w-full h-full object-contain scale-110">
+</div>
+<div class="rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center overflow-hidden aspect-[3/2]">
+<img src="Trust Logos/Trust Pilot.png" alt="Trustpilot" class="w-full h-full object-contain scale-110">
+</div>
+<div class="rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center overflow-hidden aspect-[3/2]">
+<img src="Trust Logos/Shopper Approved.png" alt="Shopper Approved" class="w-full h-full object-contain scale-110">
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Column 1 — slow -->
+<div class="testimonial-col">
+<div class="testimonial-scroll flex flex-col gap-6 pb-6" style="--scroll-duration: 25s;">
+<!-- Set 1 -->
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&q=80&fit=crop" alt="Corporate Gift Set" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"The attention to detail on our corporate gift sets was exceptional. SwagPrint didn't just deliver products; they delivered an experience."</p>
+<h5 class="font-bold text-sm">Sarah Jenkins</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Director of Culture, TechFlow</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+<span class="text-[9px] text-secondary font-medium">via Google Reviews</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&q=80&fit=crop" alt="Custom Embroidered Polos" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"We switched vendors and immediately noticed the quality difference. The embroidery on our executive polos is pristine."</p>
+<h5 class="font-bold text-sm">Alex Rivera</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">VP Operations, Cascade</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Trust Pilot.png" alt="Trustpilot" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Trustpilot</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=400&q=80&fit=crop" alt="Custom Printed T-Shirts" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"Our conference swag was a hit. Attendees wore the tees months later. That's the lasting impression we needed."</p>
+<h5 class="font-bold text-sm">Diana Park</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Head of Events, Luminary</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Shopper Approved.png" alt="Shopper Approved" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Shopper Approved</span>
+</div>
+</div>
+</div>
+<!-- Set 2 (duplicate for seamless loop) -->
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&q=80&fit=crop" alt="Corporate Gift Set" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"The attention to detail on our corporate gift sets was exceptional. SwagPrint didn't just deliver products; they delivered an experience."</p>
+<h5 class="font-bold text-sm">Sarah Jenkins</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Director of Culture, TechFlow</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+<span class="text-[9px] text-secondary font-medium">via Google Reviews</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&q=80&fit=crop" alt="Custom Embroidered Polos" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"We switched vendors and immediately noticed the quality difference. The embroidery on our executive polos is pristine."</p>
+<h5 class="font-bold text-sm">Alex Rivera</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">VP Operations, Cascade</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Trust Pilot.png" alt="Trustpilot" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Trustpilot</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=400&q=80&fit=crop" alt="Custom Printed T-Shirts" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"Our conference swag was a hit. Attendees wore the tees months later. That's the lasting impression we needed."</p>
+<h5 class="font-bold text-sm">Diana Park</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Head of Events, Luminary</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Shopper Approved.png" alt="Shopper Approved" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Shopper Approved</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2 — medium -->
+<div class="testimonial-col">
+<div class="testimonial-scroll flex flex-col gap-6 pb-6" style="--scroll-duration: 18s;">
+<!-- Set 1 -->
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400&q=80&fit=crop" alt="Custom Printed Apparel" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"Fastest turnaround for high-volume custom apparel. The print quality on the organic tees is vibrant and durable."</p>
+<h5 class="font-bold text-sm">Marcus Chen</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Marketing Lead, InnovateAI</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Trust Pilot.png" alt="Trustpilot" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Trustpilot</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1589384267710-7a170981ca78?w=400&q=80&fit=crop" alt="Branded Merchandise Rollout" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"SwagPrint handled our rebrand merch rollout across 12 offices. Consistent quality, zero headaches."</p>
+<h5 class="font-bold text-sm">James Mitchell</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Founder, Greenthread</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+<span class="text-[9px] text-secondary font-medium">via Google Reviews</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80&fit=crop" alt="Custom Stickers and Labels" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"The Design Lab sold us. Previewing our logo on products in real-time before ordering changed our workflow."</p>
+<h5 class="font-bold text-sm">Priya Sharma</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Brand Manager, Nexus</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Shopper Approved.png" alt="Shopper Approved" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Shopper Approved</span>
+</div>
+</div>
+</div>
+<!-- Set 2 (duplicate) -->
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400&q=80&fit=crop" alt="Custom Printed Apparel" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"Fastest turnaround for high-volume custom apparel. The print quality on the organic tees is vibrant and durable."</p>
+<h5 class="font-bold text-sm">Marcus Chen</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Marketing Lead, InnovateAI</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Trust Pilot.png" alt="Trustpilot" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Trustpilot</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1589384267710-7a170981ca78?w=400&q=80&fit=crop" alt="Branded Merchandise Rollout" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"SwagPrint handled our rebrand merch rollout across 12 offices. Consistent quality, zero headaches."</p>
+<h5 class="font-bold text-sm">James Mitchell</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Founder, Greenthread</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+<span class="text-[9px] text-secondary font-medium">via Google Reviews</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80&fit=crop" alt="Custom Stickers and Labels" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"The Design Lab sold us. Previewing our logo on products in real-time before ordering changed our workflow."</p>
+<h5 class="font-bold text-sm">Priya Sharma</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Brand Manager, Nexus</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Shopper Approved.png" alt="Shopper Approved" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Shopper Approved</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 3 — fast -->
+<div class="testimonial-col hidden md:block">
+<div class="testimonial-scroll flex flex-col gap-6 pb-6" style="--scroll-duration: 22s;">
+<!-- Set 1 -->
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&q=80&fit=crop" alt="Branded Tote Bags and Swag" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"As a startup, we needed affordable but premium-looking swag. Our investors thought we spent 3x what we actually did."</p>
+<h5 class="font-bold text-sm">Rachel Torres</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Chief of Staff, ArcLight</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Trust Pilot.png" alt="Trustpilot" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Trustpilot</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&q=80&fit=crop" alt="Eco-Friendly Sustainable Products" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"The sustainable product line is exactly what we needed. Recycled materials and the quality doesn't compromise."</p>
+<h5 class="font-bold text-sm">Tom Nakamura</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Creative Director, Drift</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+<span class="text-[9px] text-secondary font-medium">via Google Reviews</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80&fit=crop" alt="New Hire Welcome Kit Box" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"Three years of new-hire welcome kits. Every single box gets the same reaction: genuine excitement."</p>
+<h5 class="font-bold text-sm">Emily Watson</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">HR Director, Vantage</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Shopper Approved.png" alt="Shopper Approved" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Shopper Approved</span>
+</div>
+</div>
+</div>
+<!-- Set 2 (duplicate) -->
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&q=80&fit=crop" alt="Branded Tote Bags and Swag" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"As a startup, we needed affordable but premium-looking swag. Our investors thought we spent 3x what we actually did."</p>
+<h5 class="font-bold text-sm">Rachel Torres</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Chief of Staff, ArcLight</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Trust Pilot.png" alt="Trustpilot" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Trustpilot</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&q=80&fit=crop" alt="Eco-Friendly Sustainable Products" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"The sustainable product line is exactly what we needed. Recycled materials and the quality doesn't compromise."</p>
+<h5 class="font-bold text-sm">Tom Nakamura</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Creative Director, Drift</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+<span class="text-[9px] text-secondary font-medium">via Google Reviews</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[2rem] shadow-ambient-sm overflow-hidden">
+<img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80&fit=crop" alt="New Hire Welcome Kit Box" class="w-full h-36 object-cover">
+<div class="p-6">
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">"Three years of new-hire welcome kits. Every single box gets the same reaction: genuine excitement."</p>
+<h5 class="font-bold text-sm">Emily Watson</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">HR Director, Vantage</p>
+<div class="flex items-center gap-1.5 mt-3 pt-3 border-t border-surface-variant/30">
+<img src="Trust Logos/Shopper Approved.png" alt="Shopper Approved" class="h-3.5 w-auto object-contain">
+<span class="text-[9px] text-secondary font-medium">via Shopper Approved</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Email Signup -->
+<section class="bg-surface-container py-16 px-4 md:px-8 lg:px-16 mt-0 relative overflow-hidden">
+<!-- Background product images -->
+<div class="absolute inset-0 hidden md:flex items-center justify-between pointer-events-none">
+<div class="flex gap-4 -ml-4 opacity-75">
+<img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl -rotate-6">
+<img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl rotate-3 translate-y-8">
+<img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl -rotate-2 -translate-y-4">
+</div>
+<div class="flex gap-4 -mr-4 opacity-75">
+<img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl rotate-2 translate-y-6">
+<img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl rotate-6 -translate-y-2">
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl -rotate-3 translate-y-10">
+</div>
+</div>
+<!-- Content -->
+<div class="max-w-lg mx-auto text-center relative z-10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block">mail</span>
+<h2 class="font-headline text-2xl md:text-3xl font-extrabold tracking-tight text-on-surface mb-2">Stay in the Loop</h2>
+<p class="text-secondary text-sm mb-6 max-w-md mx-auto">Exclusive deals, new drops, and branding tips. No spam, ever.</p>
+<form class="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto" onsubmit="event.preventDefault()">
+<input type="email" placeholder="you@company.com" class="flex-1 px-5 py-2.5 rounded-full bg-white border border-outline-variant text-on-surface placeholder:text-secondary text-sm focus:outline-none focus:border-primary transition">
+<button type="submit" class="bg-primary text-on-primary font-bold text-sm px-6 py-2.5 rounded-full hover:opacity-90 hover:scale-[1.02] transition-all">Subscribe</button>
+</form>
+<p class="text-secondary/50 text-xs mt-3">Join 10,000+ brands. Unsubscribe anytime.</p>
+</div>
+</section>
+<!-- 9. Footer (Premium Footer) -->
+<footer class="bg-[#0a1628] text-white">
+<div class="max-w-[1400px] mx-auto px-4 pt-16 pb-6 md:px-8 lg:px-16 lg:pt-24">
+<div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+<!-- Brand Column -->
+<div>
+<div class="flex items-center gap-2">
+<img src="logos/SwagPrint-Horizontal-Logo-RGB-Dark.png" alt="SwagPrint" class="h-7 w-auto object-contain brightness-0 invert">
+</div>
+<p class="text-white/50 mt-6 max-w-xs text-sm leading-relaxed">
+Building beautiful and functional branded merchandise experiences. We help startups and businesses create their physical brand presence.
+</p>
+<ul class="mt-8 flex gap-5">
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="Facebook">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="Instagram">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="Twitter / X">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="LinkedIn">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="TikTok">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+</a></li>
+</ul>
+</div>
+<!-- Link Columns -->
+<div class="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-2">
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Company</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/about-us">About Us</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/faq">FAQ</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/catalogs">Catalogs</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/privacy-policy">Privacy Policy</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/shipping-policy">Shipping Policy</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/terms-conditions">Terms And Conditions</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/contact-us">Contact Us</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/accessibility">Accessibility Statement</a></li>
+</ul>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Customers</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/login">My Account</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/track-order">Track Order</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/how-to-place-purchase-order">Purchase Order</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/free-sample">Free Samples</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/return-policy">Returns Policy</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/submit-artwork">Upload Artwork</a></li>
+</ul>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Resources</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/customer-reviews?t=2">Customer Reviews</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/customer-reviews?t=2">Customer Photos</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/resources">Product Resources</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/product-templates">Product Templates</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/bandbucks">Band Bucks</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/blog">Blog</a></li>
+</ul>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Contact Us</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition flex items-center gap-2" href="tel:1-844-770-2326"><span class="material-symbols-outlined text-base">phone</span> 1-844-770-2326</a></li>
+<li><a class="text-white/60 hover:text-white transition flex items-center gap-2" href="mailto:sales@swagprint.com"><span class="material-symbols-outlined text-base">mail</span> sales@swagprint.com</a></li>
+<li><a class="text-white/60 hover:text-white transition flex items-center gap-2" href="mailto:support@swagprint.com"><span class="material-symbols-outlined text-base">support_agent</span> support@swagprint.com</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:justify-between text-center text-xs text-white/40">
+<p>&copy; 2025 SwagPrint. All rights reserved.</p>
+<p class="mt-2 sm:mt-0">Architectural Precision in Every Artifact.</p>
+</div>
+</div>
+</footer>
+<script>
+(function() {
+  // Nav cursor
+  const menu = document.getElementById('nav-menu');
+  const cursor = document.getElementById('nav-cursor');
+  if (menu && cursor) {
+    menu.querySelectorAll('.nav-item').forEach(function(item) {
+      item.addEventListener('mouseenter', function() {
+        const rect = item.getBoundingClientRect();
+        const menuRect = menu.getBoundingClientRect();
+        cursor.style.left = (rect.left - menuRect.left) + 'px';
+        cursor.style.width = rect.width + 'px';
+      });
+    });
+  }
+
+  // Scroll-triggered animations
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-up, .slide-in-left, .slide-in-right, .trust-item').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Count-up animation
+  const countObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const decimals = parseInt(el.dataset.decimals) || 0;
+        const duration = 2000;
+        const start = performance.now();
+        function update(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = eased * target;
+          if (decimals > 0) {
+            el.textContent = current.toFixed(decimals);
+          } else if (target >= 1000000) {
+            el.textContent = Math.floor(current).toLocaleString();
+          } else {
+            el.textContent = Math.floor(current).toLocaleString();
+          }
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+        countObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.count-up').forEach(function(el) {
+    countObserver.observe(el);
+  });
+  // Search toggle
+  var searchToggle = document.getElementById('search-toggle');
+  var searchOverlay = document.getElementById('search-overlay');
+  var searchInput = document.getElementById('search-input');
+  if (searchToggle && searchOverlay) {
+    searchToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      searchOverlay.classList.toggle('hidden');
+      if (!searchOverlay.classList.contains('hidden')) {
+        searchInput.focus();
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (!document.getElementById('search-wrapper').contains(e.target)) {
+        searchOverlay.classList.add('hidden');
+      }
+    });
+  }
+
+  // Hero rotating word animation
+  var heroWords = ['printed', 'delivered', 'customized', 'personalized', 'shipped'];
+  var heroIndex = 0;
+  var heroContainer = document.getElementById('hero-rotating-word');
+  if (heroContainer) {
+    setInterval(function() {
+      var current = heroContainer.querySelector('.hero-word-current');
+      var nextIndex = (heroIndex + 1) % heroWords.length;
+      var next = document.createElement('span');
+      next.className = 'hero-word-next hero-word-enter-below';
+      next.textContent = heroWords[nextIndex];
+      heroContainer.appendChild(next);
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          current.classList.add('hero-word-exit-up');
+          next.classList.remove('hero-word-enter-below');
+          next.classList.add('hero-word-enter-active');
+        });
+      });
+      setTimeout(function() {
+        current.remove();
+        next.className = 'hero-word-current';
+      }, 550);
+      heroIndex = nextIndex;
+    }, 2500);
+  }
+})();
+</script>
+</body></html>

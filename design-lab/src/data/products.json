@@ -1,0 +1,686 @@
+[
+  {
+    "id": "sublimation-full-color",
+    "name": "Full Color Sublimation",
+    "category": "lanyards",
+    "subcategory": "sublimation",
+    "description": "Full Color Dye-Sub • Edge-to-Edge",
+    "basePrice": 2.49,
+    "colors": [
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Red", "hex": "#C0392B" },
+      { "name": "Royal Blue", "hex": "#2980B9" },
+      { "name": "Kelly Green", "hex": "#27AE60" },
+      { "name": "Orange", "hex": "#E67E22" },
+      { "name": "Purple", "hex": "#8E44AD" },
+      { "name": "Pink", "hex": "#E91E8B" },
+      { "name": "Yellow", "hex": "#F1C40F" },
+      { "name": "Maroon", "hex": "#6B1D2A" },
+      { "name": "Grey", "hex": "#95A5A6" },
+      { "name": "Teal", "hex": "#008080" },
+      { "name": "Gold", "hex": "#D4A017" },
+      { "name": "Lime", "hex": "#32CD32" },
+      { "name": "Brown", "hex": "#8B4513" },
+      { "name": "Sky Blue", "hex": "#87CEEB" }
+    ],
+    "sizes": [],
+    "widths": ["1/4 inch", "3/8 inch", "1/2 inch", "5/8 inch", "3/4 inch", "1 inch"],
+    "lengths": ["Small (30\")", "Standard (36\")", "Large (42\")", "Extra Large (48\")"],
+    "printMethods": ["Dye Sublimation"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip", "Split Ring", "Carabiner", "Cell Phone Loop", "Key Ring"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.10 },
+        { "minQty": 50, "discount": 0.20 },
+        { "minQty": 100, "discount": 0.35 },
+        { "minQty": 250, "discount": 0.45 },
+        { "minQty": 500, "discount": 0.56 }
+      ],
+      "addOns": {
+        "doubleSidedPrint": { "perUnit": 0.50, "label": "Double-sided print" },
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" },
+        "laminatedSleeve": { "perUnit": 0.75, "label": "Laminated ID sleeve" },
+        "swivelHookUpgrade": { "perUnit": 0.40, "label": "Swivel hook upgrade" },
+        "quickReleaseBuckle": { "perUnit": 0.50, "label": "Quick-release buckle" },
+        "badgeHolder": { "perUnit": 0.85, "label": "Vinyl badge holder" },
+        "aluminumBadgeHolder": { "perUnit": 1.50, "label": "Aluminum badge holder" },
+        "phoneAttachment": { "perUnit": 0.60, "label": "Phone attachment loop" }
+      }
+    },
+    "upgrades": [
+      "Add double-sided print",
+      "Add safety breakaway clasp",
+      "Add badge reel attachment",
+      "Add laminated ID sleeve",
+      "Upgrade to swivel hook",
+      "Add quick-release buckle",
+      "Add vinyl badge holder",
+      "Add aluminum badge holder",
+      "Add phone attachment loop"
+    ],
+    "tags": ["full-color", "bestseller", "events"],
+    "turnaround": "7-10 business days"
+  },
+  {
+    "id": "sublimation-one-color",
+    "name": "One Color Sublimation",
+    "category": "lanyards",
+    "subcategory": "sublimation",
+    "description": "Single Color Sublimation • Budget Full-Print",
+    "basePrice": 1.99,
+    "colors": [
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Red", "hex": "#C0392B" },
+      { "name": "Royal Blue", "hex": "#2980B9" },
+      { "name": "Kelly Green", "hex": "#27AE60" },
+      { "name": "Orange", "hex": "#E67E22" },
+      { "name": "Purple", "hex": "#8E44AD" },
+      { "name": "Pink", "hex": "#E91E8B" },
+      { "name": "Yellow", "hex": "#F1C40F" },
+      { "name": "Maroon", "hex": "#6B1D2A" },
+      { "name": "Grey", "hex": "#95A5A6" },
+      { "name": "Teal", "hex": "#008080" },
+      { "name": "Gold", "hex": "#D4A017" },
+      { "name": "Lime", "hex": "#32CD32" },
+      { "name": "Brown", "hex": "#8B4513" },
+      { "name": "Sky Blue", "hex": "#87CEEB" }
+    ],
+    "sizes": [],
+    "widths": ["3/8 inch", "1/2 inch", "5/8 inch", "3/4 inch", "1 inch"],
+    "lengths": ["Small (30\")", "Standard (36\")", "Large (42\")", "Extra Large (48\")"],
+    "printMethods": ["Laser Printing", "Screen Printing"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip", "Split Ring", "Carabiner", "Key Ring"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.10 },
+        { "minQty": 50, "discount": 0.20 },
+        { "minQty": 100, "discount": 0.30 },
+        { "minQty": 250, "discount": 0.42 },
+        { "minQty": 500, "discount": 0.52 }
+      ],
+      "addOns": {
+        "doubleSidedPrint": { "perUnit": 0.50, "label": "Double-sided print" },
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" },
+        "laminatedSleeve": { "perUnit": 0.75, "label": "Laminated ID sleeve" },
+        "badgeHolder": { "perUnit": 0.85, "label": "Vinyl badge holder" },
+        "phoneAttachment": { "perUnit": 0.60, "label": "Phone attachment loop" }
+      }
+    },
+    "upgrades": [
+      "Add double-sided print",
+      "Add safety breakaway clasp",
+      "Add badge reel attachment",
+      "Add laminated ID sleeve",
+      "Add vinyl badge holder",
+      "Add phone attachment loop"
+    ],
+    "tags": ["affordable", "popular", "sublimation"],
+    "turnaround": "7-10 business days"
+  },
+  {
+    "id": "polyester-lanyard",
+    "name": "Polyester Lanyard",
+    "category": "lanyards",
+    "subcategory": "polyester",
+    "description": "Screen Print • Durable Polyester",
+    "basePrice": 1.79,
+    "colors": [
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Red", "hex": "#C0392B" },
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Royal Blue", "hex": "#2980B9" },
+      { "name": "Kelly Green", "hex": "#27AE60" },
+      { "name": "Orange", "hex": "#E67E22" },
+      { "name": "Purple", "hex": "#8E44AD" },
+      { "name": "Yellow", "hex": "#F1C40F" },
+      { "name": "Grey", "hex": "#95A5A6" },
+      { "name": "Maroon", "hex": "#6B1D2A" },
+      { "name": "Teal", "hex": "#008080" }
+    ],
+    "sizes": [],
+    "widths": ["3/8 inch", "1/2 inch", "5/8 inch", "3/4 inch", "1 inch"],
+    "lengths": ["Small (30\")", "Standard (36\")", "Large (42\")", "Extra Large (48\")"],
+    "printMethods": ["Screen Printing"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip", "Split Ring", "Key Ring"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.10 },
+        { "minQty": 50, "discount": 0.18 },
+        { "minQty": 100, "discount": 0.30 },
+        { "minQty": 250, "discount": 0.40 },
+        { "minQty": 500, "discount": 0.50 }
+      ],
+      "addOns": {
+        "doubleSidedPrint": { "perUnit": 0.50, "label": "Double-sided print" },
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" },
+        "badgeHolder": { "perUnit": 0.85, "label": "Vinyl badge holder" }
+      }
+    },
+    "upgrades": ["Add double-sided print", "Add safety breakaway clasp", "Add badge reel attachment", "Add vinyl badge holder"],
+    "tags": ["affordable", "popular", "corporate"],
+    "turnaround": "7-10 business days"
+  },
+  {
+    "id": "nylon-lanyard",
+    "name": "Nylon Lanyard",
+    "category": "lanyards",
+    "subcategory": "nylon",
+    "description": "Smooth Nylon • Premium Shiny Finish",
+    "basePrice": 2.29,
+    "colors": [
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Red", "hex": "#C0392B" },
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Royal Blue", "hex": "#2980B9" },
+      { "name": "Kelly Green", "hex": "#27AE60" },
+      { "name": "Purple", "hex": "#8E44AD" },
+      { "name": "Orange", "hex": "#E67E22" },
+      { "name": "Grey", "hex": "#95A5A6" },
+      { "name": "Teal", "hex": "#008080" },
+      { "name": "Maroon", "hex": "#6B1D2A" },
+      { "name": "Gold", "hex": "#D4A017" }
+    ],
+    "sizes": [],
+    "widths": ["3/8 inch", "1/2 inch", "5/8 inch", "3/4 inch", "1 inch"],
+    "lengths": ["Small (30\")", "Standard (36\")", "Large (42\")", "Extra Large (48\")"],
+    "printMethods": ["Screen Printing"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip", "Split Ring", "Key Ring"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.10 },
+        { "minQty": 50, "discount": 0.20 },
+        { "minQty": 100, "discount": 0.30 },
+        { "minQty": 250, "discount": 0.42 },
+        { "minQty": 500, "discount": 0.52 }
+      ],
+      "addOns": {
+        "doubleSidedPrint": { "perUnit": 0.50, "label": "Double-sided print" },
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" },
+        "badgeHolder": { "perUnit": 0.85, "label": "Vinyl badge holder" }
+      }
+    },
+    "upgrades": ["Add double-sided print", "Add safety breakaway clasp", "Add badge reel attachment", "Add vinyl badge holder"],
+    "tags": ["smooth", "premium", "events"],
+    "turnaround": "7-10 business days"
+  },
+  {
+    "id": "woven-lanyard",
+    "name": "Woven Lanyard",
+    "category": "lanyards",
+    "subcategory": "woven",
+    "description": "Woven Text/Logo • Durable Embroidered",
+    "basePrice": 3.29,
+    "colors": [
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Red", "hex": "#C0392B" },
+      { "name": "Royal Blue", "hex": "#2980B9" },
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Grey", "hex": "#95A5A6" },
+      { "name": "Kelly Green", "hex": "#27AE60" },
+      { "name": "Purple", "hex": "#8E44AD" },
+      { "name": "Orange", "hex": "#E67E22" },
+      { "name": "Maroon", "hex": "#6B1D2A" }
+    ],
+    "sizes": [],
+    "widths": ["3/8 inch", "1/2 inch", "5/8 inch", "3/4 inch", "1 inch"],
+    "lengths": ["Small (30\")", "Standard (36\")", "Large (42\")", "Extra Large (48\")"],
+    "printMethods": ["Woven"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip", "Split Ring", "Key Ring"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.08 },
+        { "minQty": 50, "discount": 0.15 },
+        { "minQty": 100, "discount": 0.25 },
+        { "minQty": 250, "discount": 0.35 },
+        { "minQty": 500, "discount": 0.45 }
+      ],
+      "addOns": {
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" },
+        "swivelHookUpgrade": { "perUnit": 0.40, "label": "Swivel hook upgrade" },
+        "badgeHolder": { "perUnit": 0.85, "label": "Vinyl badge holder" }
+      }
+    },
+    "upgrades": ["Add safety breakaway clasp", "Add badge reel attachment", "Upgrade to swivel hook", "Add vinyl badge holder"],
+    "tags": ["premium", "executive", "durable"],
+    "turnaround": "10-14 business days"
+  },
+  {
+    "id": "tubular-lanyard",
+    "name": "Tubular Lanyard",
+    "category": "lanyards",
+    "subcategory": "tubular",
+    "description": "Tube-Style • Budget Friendly",
+    "basePrice": 1.49,
+    "colors": [
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Red", "hex": "#C0392B" },
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Royal Blue", "hex": "#2980B9" },
+      { "name": "Kelly Green", "hex": "#27AE60" },
+      { "name": "Orange", "hex": "#E67E22" },
+      { "name": "Yellow", "hex": "#F1C40F" },
+      { "name": "Purple", "hex": "#8E44AD" },
+      { "name": "Grey", "hex": "#95A5A6" }
+    ],
+    "sizes": [],
+    "widths": ["3/8 inch", "1/2 inch", "5/8 inch"],
+    "lengths": ["Small (30\")", "Standard (36\")", "Large (42\")"],
+    "printMethods": ["Screen Printing"],
+    "attachments": ["J-Hook", "Bulldog Clip", "Split Ring"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.12 },
+        { "minQty": 50, "discount": 0.22 },
+        { "minQty": 100, "discount": 0.35 },
+        { "minQty": 250, "discount": 0.45 },
+        { "minQty": 500, "discount": 0.55 }
+      ],
+      "addOns": {
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeHolder": { "perUnit": 0.85, "label": "Vinyl badge holder" }
+      }
+    },
+    "upgrades": ["Add safety breakaway clasp", "Add vinyl badge holder"],
+    "tags": ["budget", "bulk", "schools"],
+    "turnaround": "5-7 business days"
+  },
+  {
+    "id": "breakaway-lanyard",
+    "name": "Breakaway Lanyard",
+    "category": "lanyards",
+    "subcategory": "breakaway",
+    "description": "Snap Release Safety • Required for Healthcare",
+    "basePrice": 2.19,
+    "colors": [
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Red", "hex": "#C0392B" },
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Royal Blue", "hex": "#2980B9" },
+      { "name": "Kelly Green", "hex": "#27AE60" },
+      { "name": "Orange", "hex": "#E67E22" },
+      { "name": "Purple", "hex": "#8E44AD" },
+      { "name": "Yellow", "hex": "#F1C40F" },
+      { "name": "Grey", "hex": "#95A5A6" },
+      { "name": "Teal", "hex": "#008080" },
+      { "name": "Maroon", "hex": "#6B1D2A" },
+      { "name": "Pink", "hex": "#E91E8B" },
+      { "name": "Lime", "hex": "#32CD32" },
+      { "name": "Gold", "hex": "#D4A017" },
+      { "name": "Brown", "hex": "#8B4513" },
+      { "name": "Sky Blue", "hex": "#87CEEB" }
+    ],
+    "sizes": [],
+    "widths": ["3/8 inch", "1/2 inch", "5/8 inch", "3/4 inch"],
+    "lengths": ["Small (30\")", "Standard (36\")", "Large (42\")"],
+    "printMethods": ["Screen Printing", "Dye Sublimation"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip", "Split Ring", "Key Ring"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.10 },
+        { "minQty": 50, "discount": 0.18 },
+        { "minQty": 100, "discount": 0.30 },
+        { "minQty": 250, "discount": 0.40 },
+        { "minQty": 500, "discount": 0.50 }
+      ],
+      "addOns": {
+        "doubleSidedPrint": { "perUnit": 0.50, "label": "Double-sided print" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" },
+        "laminatedSleeve": { "perUnit": 0.75, "label": "Laminated ID sleeve" },
+        "badgeHolder": { "perUnit": 0.85, "label": "Vinyl badge holder" }
+      }
+    },
+    "upgrades": ["Add double-sided print", "Add badge reel attachment", "Add laminated ID sleeve", "Add vinyl badge holder"],
+    "tags": ["safety", "healthcare", "schools"],
+    "turnaround": "7-10 business days"
+  },
+  {
+    "id": "two-tone-lanyard",
+    "name": "Two-Tone Lanyard",
+    "category": "lanyards",
+    "subcategory": "two-tone",
+    "description": "Dual-Color Design • Breakaway Style",
+    "basePrice": 2.49,
+    "colors": [
+      { "name": "Black/Red", "hex": "#1A1A1A" },
+      { "name": "Navy/White", "hex": "#2C3E50" },
+      { "name": "Royal/Yellow", "hex": "#2980B9" },
+      { "name": "Green/White", "hex": "#27AE60" },
+      { "name": "Red/White", "hex": "#C0392B" },
+      { "name": "Purple/Gold", "hex": "#8E44AD" }
+    ],
+    "sizes": [],
+    "widths": ["5/8 inch", "3/4 inch"],
+    "lengths": ["Standard (36\")"],
+    "printMethods": ["Screen Printing"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.10 },
+        { "minQty": 50, "discount": 0.18 },
+        { "minQty": 100, "discount": 0.28 },
+        { "minQty": 250, "discount": 0.38 }
+      ],
+      "addOns": {
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" },
+        "badgeHolder": { "perUnit": 0.85, "label": "Vinyl badge holder" }
+      }
+    },
+    "upgrades": ["Add safety breakaway clasp", "Add badge reel attachment", "Add vinyl badge holder"],
+    "tags": ["stylish", "sports", "schools"],
+    "turnaround": "7-10 business days"
+  },
+  {
+    "id": "reflective-lanyard",
+    "name": "Reflective Lanyard",
+    "category": "lanyards",
+    "subcategory": "reflective",
+    "description": "High-Visibility • Safety Reflective",
+    "basePrice": 2.69,
+    "colors": [
+      { "name": "Silver", "hex": "#C0C0C0" },
+      { "name": "Neon Yellow", "hex": "#CCFF00" },
+      { "name": "Neon Orange", "hex": "#FF6600" },
+      { "name": "White", "hex": "#FFFFFF" }
+    ],
+    "sizes": [],
+    "widths": ["1/2 inch", "5/8 inch", "3/4 inch"],
+    "lengths": ["Standard (36\")"],
+    "printMethods": ["Screen Printing"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip", "Split Ring"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.08 },
+        { "minQty": 50, "discount": 0.15 },
+        { "minQty": 100, "discount": 0.25 },
+        { "minQty": 250, "discount": 0.35 }
+      ],
+      "addOns": {
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" },
+        "badgeHolder": { "perUnit": 0.85, "label": "Vinyl badge holder" }
+      }
+    },
+    "upgrades": ["Add safety breakaway clasp", "Add badge reel attachment", "Add vinyl badge holder"],
+    "tags": ["safety", "high-visibility", "construction"],
+    "turnaround": "7-10 business days"
+  },
+  {
+    "id": "binary-lanyard",
+    "name": "Binary Lanyard",
+    "category": "lanyards",
+    "subcategory": "binary",
+    "description": "Custom Binary Design • Unique Pattern",
+    "basePrice": 2.39,
+    "colors": [
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Red", "hex": "#C0392B" },
+      { "name": "Royal Blue", "hex": "#2980B9" },
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Kelly Green", "hex": "#27AE60" }
+    ],
+    "sizes": [],
+    "widths": ["1/2 inch", "5/8 inch", "3/4 inch"],
+    "lengths": ["Standard (36\")"],
+    "printMethods": ["Screen Printing"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.10 },
+        { "minQty": 50, "discount": 0.18 },
+        { "minQty": 100, "discount": 0.28 },
+        { "minQty": 250, "discount": 0.38 }
+      ],
+      "addOns": {
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" }
+      }
+    },
+    "upgrades": ["Add safety breakaway clasp", "Add badge reel attachment"],
+    "tags": ["tech", "unique", "corporate"],
+    "turnaround": "7-10 business days"
+  },
+  {
+    "id": "cord-lanyard",
+    "name": "Cord Lanyard",
+    "category": "lanyards",
+    "subcategory": "cord",
+    "description": "Round Cord Style • Minimalist",
+    "basePrice": 1.69,
+    "colors": [
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Red", "hex": "#C0392B" },
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Royal Blue", "hex": "#2980B9" }
+    ],
+    "sizes": [],
+    "widths": ["1/4 inch", "3/8 inch"],
+    "lengths": ["Standard (36\")"],
+    "printMethods": ["Screen Printing"],
+    "attachments": ["J-Hook", "Bulldog Clip", "Split Ring"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.10 },
+        { "minQty": 50, "discount": 0.20 },
+        { "minQty": 100, "discount": 0.32 },
+        { "minQty": 250, "discount": 0.42 }
+      ],
+      "addOns": {
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" }
+      }
+    },
+    "upgrades": ["Add safety breakaway clasp"],
+    "tags": ["minimalist", "budget", "events"],
+    "turnaround": "5-7 business days"
+  },
+  {
+    "id": "eco-wood-fiber-lanyard",
+    "name": "Eco Wood Fiber Lanyard",
+    "category": "lanyards",
+    "subcategory": "eco",
+    "description": "Biodegradable Wood Fiber • Sustainable",
+    "basePrice": 3.49,
+    "colors": [
+      { "name": "Natural", "hex": "#D4C5A9" },
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Forest Green", "hex": "#1B5E20" }
+    ],
+    "sizes": [],
+    "widths": ["5/8 inch", "3/4 inch"],
+    "lengths": ["Standard (36\")"],
+    "printMethods": ["Screen Printing"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.08 },
+        { "minQty": 50, "discount": 0.15 },
+        { "minQty": 100, "discount": 0.22 },
+        { "minQty": 250, "discount": 0.30 }
+      ],
+      "addOns": {
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" }
+      }
+    },
+    "upgrades": ["Add safety breakaway clasp", "Add badge reel attachment"],
+    "tags": ["eco-friendly", "sustainable", "biodegradable"],
+    "turnaround": "10-14 business days"
+  },
+  {
+    "id": "eco-rpet-lanyard",
+    "name": "Eco rPET Lanyard",
+    "category": "lanyards",
+    "subcategory": "eco",
+    "description": "100% Recycled Plastic • Sustainable",
+    "basePrice": 2.99,
+    "colors": [
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Grey", "hex": "#95A5A6" },
+      { "name": "Forest Green", "hex": "#1B5E20" }
+    ],
+    "sizes": [],
+    "widths": ["1/2 inch", "5/8 inch", "3/4 inch"],
+    "lengths": ["Standard (36\")", "Large (42\")"],
+    "printMethods": ["Screen Printing", "Dye Sublimation"],
+    "attachments": ["J-Hook", "Swivel Hook", "Bulldog Clip", "Split Ring"],
+    "imprintSides": ["One-Sided", "Two-Sided"],
+    "stitchStyles": ["Sewn", "Crimped", "Heat-Sealed"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 25, "discount": 0.10 },
+        { "minQty": 50, "discount": 0.18 },
+        { "minQty": 100, "discount": 0.28 },
+        { "minQty": 250, "discount": 0.38 },
+        { "minQty": 500, "discount": 0.48 }
+      ],
+      "addOns": {
+        "doubleSidedPrint": { "perUnit": 0.50, "label": "Double-sided print" },
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" },
+        "badgeReel": { "perUnit": 1.25, "label": "Badge reel attachment" },
+        "laminatedSleeve": { "perUnit": 0.75, "label": "Laminated ID sleeve" }
+      }
+    },
+    "upgrades": ["Add double-sided print", "Add safety breakaway clasp", "Add badge reel attachment", "Add laminated ID sleeve"],
+    "tags": ["eco-friendly", "recycled", "corporate"],
+    "turnaround": "7-10 business days"
+  },
+  {
+    "id": "economy-event-lanyard",
+    "name": "Economy Event Lanyard",
+    "category": "lanyards",
+    "subcategory": "economy",
+    "description": "Budget Polyester • High Volume",
+    "basePrice": 0.99,
+    "colors": [
+      { "name": "Black", "hex": "#1A1A1A" },
+      { "name": "Navy", "hex": "#2C3E50" },
+      { "name": "Red", "hex": "#C0392B" },
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Royal Blue", "hex": "#2980B9" },
+      { "name": "Kelly Green", "hex": "#27AE60" },
+      { "name": "Orange", "hex": "#E67E22" },
+      { "name": "Yellow", "hex": "#F1C40F" }
+    ],
+    "sizes": [],
+    "widths": ["3/8 inch", "1/2 inch"],
+    "lengths": ["Standard (36\")"],
+    "printMethods": ["Screen Printing"],
+    "attachments": ["J-Hook", "Bulldog Clip"],
+    "imprintSides": ["One-Sided"],
+    "stitchStyles": ["Sewn"],
+    "printAreas": {
+      "front": { "x": 50, "y": 100, "width": 400, "height": 60 }
+    },
+    "pricing": {
+      "bulkTiers": [
+        { "minQty": 1, "discount": 0 },
+        { "minQty": 50, "discount": 0.15 },
+        { "minQty": 100, "discount": 0.30 },
+        { "minQty": 250, "discount": 0.45 },
+        { "minQty": 500, "discount": 0.55 },
+        { "minQty": 1000, "discount": 0.65 }
+      ],
+      "addOns": {
+        "safetyBreakaway": { "perUnit": 0.30, "label": "Safety breakaway clasp" }
+      }
+    },
+    "upgrades": ["Add safety breakaway clasp"],
+    "tags": ["budget", "bulk", "events", "trade-shows"],
+    "turnaround": "5-7 business days"
+  }
+]

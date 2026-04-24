@@ -1,0 +1,1187 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Custom Can Coolers | SwagPrint</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#d4f0e5",
+                    "on-background": "#1a2a3a",
+                    "surface-variant": "#d6e2da",
+                    "surface-dim": "#d6ddd9",
+                    "surface-tint": "#3D5167",
+                    "on-secondary-container": "#3D5167",
+                    "secondary-fixed-dim": "#b0c4b8",
+                    "surface-container": "#e8eeeb",
+                    "inverse-surface": "#1a2a3a",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#8ECAB0",
+                    "secondary-container": "#d6e2da",
+                    "outline": "#6b7d74",
+                    "on-surface": "#1a2a3a",
+                    "surface-container-low": "#f0f4f2",
+                    "surface": "#f5f7f6",
+                    "primary-fixed-dim": "#6ba3d6",
+                    "inverse-on-surface": "#e8eeeb",
+                    "on-surface-variant": "#3D5167",
+                    "on-primary-fixed-variant": "#2a3d4f",
+                    "on-primary-container": "#8ECAB0",
+                    "primary-container": "#3D5167",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#3D5167",
+                    "on-tertiary-fixed": "#0a1628",
+                    "on-tertiary-container": "#8ECAB0",
+                    "background": "#f5f7f6",
+                    "on-primary-fixed": "#0a1628",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#5a7068",
+                    "tertiary-container": "#3D5167",
+                    "secondary-fixed": "#d6e2da",
+                    "tertiary": "#2a3d4f",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "primary": "#3D5167",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e0e8e4",
+                    "primary-fixed": "#d6e2da",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#d6e2da",
+                    "on-secondary-fixed": "#1a2a3a",
+                    "inverse-primary": "#8ECAB0",
+                    "on-tertiary-fixed-variant": "#2a3d4f",
+                    "surface-bright": "#f5f7f6",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c5d0ca"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-1 { font-variation-settings: 'FILL' 1; }
+        .shadow-ambient-sm { box-shadow: 0 8px 30px rgba(11, 29, 45, 0.04); }
+        .shadow-ambient { box-shadow: 0 20px 50px rgba(11, 29, 45, 0.05); }
+        .shadow-ambient-lg { box-shadow: 0 30px 60px rgba(11, 29, 45, 0.06); }
+        .btn-primary { transition: background 0.3s ease, transform 0.2s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #2a3d4f, #3D5167) !important; opacity: 1 !important; transform: translateY(-1px); }
+        .input-ghost { transition: all 0.2s ease; }
+        .input-ghost:focus { background-color: #ffffff !important; box-shadow: 0 0 0 1px rgba(16, 50, 207, 0.3) !important; border-color: transparent !important; }
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+        /* Scroll-triggered animations */
+        .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-up.delay-1 { transition-delay: 0.1s; }
+        .fade-up.delay-2 { transition-delay: 0.2s; }
+        .fade-up.delay-3 { transition-delay: 0.3s; }
+        .fade-up.delay-4 { transition-delay: 0.4s; }
+        .fade-up.delay-5 { transition-delay: 0.5s; }
+
+        /* Hero entrance */
+        .hero-fade { opacity: 0; transform: translateY(30px); animation: heroEntrance 1s ease forwards; }
+        .hero-fade.d1 { animation-delay: 0.2s; }
+        .hero-fade.d2 { animation-delay: 0.4s; }
+        .hero-fade.d3 { animation-delay: 0.6s; }
+        @keyframes heroEntrance {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Loading spinner */
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spinner { width: 24px; height: 24px; border: 2px solid #c5d0ca; border-top-color: #3D5167; border-radius: 50%; animation: spin 0.6s linear infinite; }
+    </style>
+</head>
+<body class="font-body text-on-surface bg-background">
+<!-- NAV -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md">
+<!-- Top utility bar -->
+<div class="bg-surface-container-low px-8 py-1.5 text-[10px] font-bold tracking-wider text-secondary flex justify-between items-center">
+<div>Free Shipping on All Orders</div>
+<div class="flex gap-6 items-center">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="tel:1-800-346-7890"><span class="material-symbols-outlined text-[10px]">phone</span> 1.800.346.7890</a>
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="hover:text-primary transition-colors" href="#">Track Order</a>
+</div>
+</div>
+<!-- Main nav -->
+<nav class="flex items-center px-8 py-3">
+<a href="code.html"><img src="logos/SwagPrint-Horizontal-Logo-RGB-Dark.png" alt="SwagPrint" class="h-7 w-auto object-contain"></a>
+<div class="hidden lg:flex items-center gap-0 ml-6">
+<!-- Apparel -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Custom Apparel <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">checkroom</span> T-Shirts</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">dry_cleaning</span> Polos</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">apparel</span> Hoodies &amp; Sweatshirts</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">styler</span> Jackets</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">headphones</span> Hats &amp; Caps</a>
+</div>
+</div>
+</div>
+<!-- Promotional -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Promotional Products <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">edit</span> Pens &amp; Writing</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">local_drink</span> Drinkware</a>
+<a href="category.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">local_cafe</span> Can Coolers</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">shopping_bag</span> Bags &amp; Totes</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">sticky_note_2</span> Stickers &amp; Labels</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">devices</span> Tech Accessories</a>
+</div>
+</div>
+</div>
+<!-- Corporate Gifts -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Corporate Gifts <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">inventory_2</span> Gift Boxes</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">waving_hand</span> Welcome Kits</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">workspace_premium</span> Executive Gifts</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">holiday_village</span> Holiday Gifts</a>
+</div>
+</div>
+</div>
+<!-- Marketing Material -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Marketing Material <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">print</span> Brochures &amp; Flyers</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">flag</span> Banners &amp; Signs</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">contact_mail</span> Business Cards</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">folder_open</span> Folders &amp; Inserts</a>
+</div>
+</div>
+</div>
+<!-- Groups & Events -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Groups &amp; Events <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">groups</span> Team Stores</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">celebration</span> Events &amp; Conferences</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">school</span> Schools &amp; Clubs</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">volunteer_activism</span> Nonprofits</a>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 ml-auto">
+<!-- Search icon + expandable search -->
+<div class="relative" id="search-wrapper">
+<button id="search-toggle" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-xl">search</span>
+</button>
+<div id="search-overlay" class="hidden absolute right-0 top-full mt-2 w-80 bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/30 p-3 z-50">
+<div class="flex items-center gap-2 bg-surface-container-lowest rounded-xl px-4 py-2.5 border border-surface-variant/20">
+<span class="material-symbols-outlined text-lg text-outline">search</span>
+<input id="search-input" class="bg-transparent border-none focus:outline-none text-sm w-full placeholder:text-outline-variant" placeholder="Search products, brands..." type="text">
+</div>
+<div class="mt-2 px-2">
+<p class="text-[10px] text-secondary font-medium uppercase tracking-wider mb-2">Popular</p>
+<div class="flex flex-wrap gap-1.5">
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Custom Tees</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Tote Bags</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Water Bottles</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Pens</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Caps</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Cart -->
+<button class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all relative">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary text-white text-[9px] font-bold rounded-full flex items-center justify-center">0</span>
+</button>
+<!-- Account -->
+<button class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-xl">account_circle</span>
+</button>
+<!-- Mobile menu toggle -->
+<button id="mobile-menu-toggle" class="lg:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-xl">menu</span>
+</button>
+</div>
+</nav>
+</header>
+
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="bg-primary-container hero-fade overflow-hidden">
+<div class="flex flex-col lg:flex-row items-center relative">
+<!-- Left: Text -->
+<div class="flex-1 min-w-0 relative z-10 px-4 md:px-8 lg:pl-[max(2rem,calc((100vw-1400px)/2+2rem))] lg:pr-0 py-10 lg:py-14">
+<nav class="flex text-[10px] uppercase tracking-[0.2em] text-white/50 mb-4 font-bold">
+<a class="hover:text-white/80 transition-colors" href="#">Home</a>
+<span class="mx-2">/</span>
+<a class="hover:text-white/80 transition-colors" href="#">Drinkware</a>
+<span class="mx-2">/</span>
+<span class="text-white/70">Can Coolers</span>
+</nav>
+<h1 class="font-headline text-3xl lg:text-5xl font-extrabold text-white tracking-tighter leading-[1.05] mb-3">
+Custom Can Coolers
+</h1>
+<p class="text-white/80 text-base leading-relaxed max-w-md mb-6">
+Keep drinks cold. Keep your brand hot. Premium koozies and can coolers, customized with your logo.
+</p>
+<!-- CTA + Social proof -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+<a href="#" class="bg-white text-primary font-bold px-7 py-3 rounded-full hover:scale-105 hover:shadow-lg transition-all text-sm">Start Designing</a>
+<div class="flex items-center gap-2 text-white/60 text-sm">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span>Trusted by 2,000+ brands</span>
+</div>
+</div>
+<!-- Stats strip -->
+<div class="flex flex-wrap gap-x-6 gap-y-2 text-white/70 text-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-white/50">payments</span>
+<span>Starting at <strong class="text-white">$0.59/ea</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-white/50">inventory</span>
+<span>Min <strong class="text-white">25 units</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-white/50">palette</span>
+<span><strong class="text-white">100+</strong> colors</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-white/50">local_shipping</span>
+<span>Ships in <strong class="text-white">5 days</strong></span>
+</div>
+</div>
+</div>
+<!-- Right: Image — flush to the right edge, no rounding, bleeds out -->
+<div class="hidden lg:block lg:w-[55%] self-stretch shrink-0 relative z-10">
+<img src="Category Images/801f8878-8d9b-4fdd-9732-fa6c40849b23-2026-04-16.png" alt="Custom Can Coolers" class="w-full h-full object-cover object-center">
+</div>
+</div>
+</section>
+
+<!-- Top Picks Section -->
+<section class="bg-surface-container-low/50 py-12 mb-12 border-y border-outline-variant/10 fade-up">
+<div class="px-4 md:px-8 lg:px-16 max-w-[1400px] mx-auto">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline text-2xl font-extrabold text-on-surface tracking-tight">Today's Top Picks</h2>
+<a class="text-sm font-bold text-primary flex items-center gap-1 hover:underline" href="#">View all best sellers <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Featured Card 1 -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+<div class="aspect-square bg-slate-50 relative overflow-hidden">
+<span class="absolute top-4 left-4 z-10 bg-primary text-white px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase">Popular</span>
+<img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500" alt="Premium Collapsible Koozie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5dXACKH8QZjO-WFS0Rf59oRck_95DZJe86cHTgpv_zdda9Mv3aWnZBgkt6VgxRna9amgvxhScSVGYzoARmcByRZfM8S4EhnDk2r2-acu-_8UgUPOXv7IGMkXHKvGRrzulKOcehY0WiLGYFKpytjjr5kcfUoboS7znuc9V1fkVntjY08cgkFMbnaVbFGrlQ09qbgUzZBuc-glH40O3Inv9ivKFJj6oenkCrfQxh9DaFHPjOIWU10NBYfeVasOumrWafWtUDZ8I7gXe">
+</div>
+<div class="p-5">
+<h3 class="font-bold text-on-surface mb-1">Premium Collapsible</h3>
+<p class="text-xs text-secondary font-bold uppercase tracking-tighter mb-3">Min 25 &middot; $1.29/ea</p>
+<button class="w-full py-2 bg-slate-100 text-on-surface text-sm font-bold rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">Select Color</button>
+</div>
+</div>
+<!-- Featured Card 2 -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+<div class="aspect-square bg-slate-50 relative overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500" alt="Neoprene Can Cooler" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqB9XzIem5Q7-9xzGP4YfQbXeXxjiXR-QClCo257agl6OAweAWyaOqPSl353laKCvQyKEwjJs2H0vCLR2aEUk74_G_6zTzOQus_R1K0E9LTHyMwjIuD5TuOUMqQJJPTO3LE_qCruC4y_9SlT-YoRxbJ2vmAzGFY9fAqFvb-WNtYW5-r7rvuDVavGtX7UyG5ea4Sl4KwJCbxWH0PCv60EZg7eOHcxuFZ0pMBteKAVsfb7BW3p_ifMN3yWxd-fcAlNYswNZ7yQI9sTl7">
+</div>
+<div class="p-5">
+<h3 class="font-bold text-on-surface mb-1">Durable Neoprene</h3>
+<p class="text-xs text-secondary font-bold uppercase tracking-tighter mb-3">Min 50 &middot; $2.49/ea</p>
+<button class="w-full py-2 bg-slate-100 text-on-surface text-sm font-bold rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">Select Color</button>
+</div>
+</div>
+<!-- Featured Card 3 -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+<div class="aspect-square bg-slate-50 relative overflow-hidden">
+<span class="absolute top-4 left-4 z-10 bg-orange-500 text-white px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase">Trending</span>
+<img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500" alt="Full Color Foam Koozie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdQrH4jHLBYkzNdTIoGqG3eAg0Y_25-ddDCueL_Cs9kr5lpC5yT7J3Q3xd8bVGUd2De4sz12FLPLEoxTj7jY1-Nj-usXtaFHBP-GpQW460WGcd2MPYXTC0avJ7mA3fkzyVqfIBXLdEyworUh0e4izP7ZVPDR1JWm-qLxJDam6ftUufOVzjG_mCHGHklcOhwHAHUi19VIwfscJm1KFTkyEGEQGhLcKVolRB_XBe9Wcn_qQIyBGkIzZ0emZvzE8_KNEzGFxdzQMywNs5">
+</div>
+<div class="p-5">
+<h3 class="font-bold text-on-surface mb-1">Full Color Foam</h3>
+<p class="text-xs text-secondary font-bold uppercase tracking-tighter mb-3">Min 100 &middot; $0.89/ea</p>
+<button class="w-full py-2 bg-slate-100 text-on-surface text-sm font-bold rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">Select Color</button>
+</div>
+</div>
+<!-- Featured Card 4 -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
+<div class="aspect-square bg-slate-50 relative overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500" alt="Slim Can Cooler" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgDIpQFfory9TYlpmP5yt9Hf_vNeyv0-_S0s3qODkN6XnS3bOH85xxcYG0uvqvKQI92rSXRu22Xsj5NSC3twjRLJVWhRROEu9uyyNIKL9vhttP0iPcfPf_Reuf7YMtIgRZygwJMMHUiIIMqJt3pzkNqp3ukSZhc8d2rlRrAyXnFAlmBWvoFoAnmXXvDo_n2vkcW9ZhtWaNKEC2Dk_jtcYrfBOrIPd-2drmIoZX4sv2qccXDOJqLnLsvXyTggpJpKy2tkD1fg8VlFH-">
+</div>
+<div class="p-5">
+<h3 class="font-bold text-on-surface mb-1">Slim Seltzer Cooler</h3>
+<p class="text-xs text-secondary font-bold uppercase tracking-tighter mb-3">Min 50 &middot; $1.99/ea</p>
+<button class="w-full py-2 bg-slate-100 text-on-surface text-sm font-bold rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">Select Color</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Filter Bar -->
+<section id="filter-bar" class="sticky top-[80px] z-40 px-4 md:px-8 lg:px-16 max-w-[1400px] mx-auto mb-12 pt-2">
+<div class="bg-white/80 glass-nav border border-outline-variant/10 rounded-full px-6 py-4 flex flex-wrap items-center justify-between shadow-md">
+<div class="flex items-center gap-3 overflow-x-auto no-scrollbar">
+<button class="filter-chip active bg-primary text-on-primary px-6 py-2 rounded-full text-sm font-semibold whitespace-nowrap" data-filter="all">All Styles</button>
+<button class="filter-chip bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant px-6 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-colors" data-filter="collapsible">Collapsible</button>
+<button class="filter-chip bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant px-6 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-colors" data-filter="neoprene">Neoprene</button>
+<button class="filter-chip bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant px-6 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-colors" data-filter="foam">Foam</button>
+<button class="filter-chip bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant px-6 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-colors" data-filter="slim">Slim Can</button>
+<div class="h-6 w-[1px] bg-outline-variant/30 mx-2"></div>
+<button id="more-filters-btn" class="flex items-center gap-2 text-primary font-semibold text-sm">
+<span class="material-symbols-outlined text-xl">tune</span>
+More Filters
+</button>
+<!-- Desktop dropdown panel -->
+<div id="more-filters-panel" class="hidden absolute top-full left-6 mt-2 bg-white rounded-lg shadow-ambient-lg p-6 w-72 z-50">
+<h4 class="font-bold text-sm mb-3">Brand</h4>
+<div class="flex flex-wrap gap-2 mb-4">
+<label class="flex items-center gap-1.5 text-sm"><input type="checkbox" class="rounded border-outline-variant"> Koozie</label>
+<label class="flex items-center gap-1.5 text-sm"><input type="checkbox" class="rounded border-outline-variant"> BritePix</label>
+</div>
+<h4 class="font-bold text-sm mb-3">Price Range</h4>
+<div class="flex items-center gap-2 mb-4">
+<input type="number" placeholder="Min" class="w-20 rounded border-outline-variant text-sm px-2 py-1">
+<span class="text-secondary">&mdash;</span>
+<input type="number" placeholder="Max" class="w-20 rounded border-outline-variant text-sm px-2 py-1">
+</div>
+<h4 class="font-bold text-sm mb-3">Material</h4>
+<div class="flex flex-wrap gap-2 mb-4">
+<label class="flex items-center gap-1.5 text-sm"><input type="checkbox" class="rounded border-outline-variant"> Neoprene</label>
+<label class="flex items-center gap-1.5 text-sm"><input type="checkbox" class="rounded border-outline-variant"> Foam</label>
+<label class="flex items-center gap-1.5 text-sm"><input type="checkbox" class="rounded border-outline-variant"> Polyester</label>
+</div>
+<button class="btn-primary bg-primary text-white rounded-full px-4 py-2 text-sm font-bold w-full">Apply Filters</button>
+</div>
+<!-- Mobile slide-up panel -->
+<div id="mobile-filters-panel" class="hidden fixed inset-0 z-50 sm:hidden">
+<div class="absolute inset-0 bg-black/40" onclick="closeMobileFilters()"></div>
+<div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-lg p-6 max-h-[80vh] overflow-y-auto">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-lg font-bold">Filters</h3>
+<button onclick="closeMobileFilters()" class="text-secondary hover:text-on-surface"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h4 class="font-bold text-sm mb-3">Brand</h4>
+<div class="flex flex-wrap gap-2 mb-4">
+<label class="flex items-center gap-1.5 text-sm"><input type="checkbox" class="rounded border-outline-variant"> Koozie</label>
+<label class="flex items-center gap-1.5 text-sm"><input type="checkbox" class="rounded border-outline-variant"> BritePix</label>
+</div>
+<h4 class="font-bold text-sm mb-3">Price Range</h4>
+<div class="flex items-center gap-2 mb-4">
+<input type="number" placeholder="Min" class="w-20 rounded border-outline-variant text-sm px-2 py-1">
+<span class="text-secondary">&mdash;</span>
+<input type="number" placeholder="Max" class="w-20 rounded border-outline-variant text-sm px-2 py-1">
+</div>
+<h4 class="font-bold text-sm mb-3">Material</h4>
+<div class="flex flex-wrap gap-2 mb-4">
+<label class="flex items-center gap-1.5 text-sm"><input type="checkbox" class="rounded border-outline-variant"> Neoprene</label>
+<label class="flex items-center gap-1.5 text-sm"><input type="checkbox" class="rounded border-outline-variant"> Foam</label>
+<label class="flex items-center gap-1.5 text-sm"><input type="checkbox" class="rounded border-outline-variant"> Polyester</label>
+</div>
+<button class="btn-primary bg-primary text-white rounded-full px-4 py-2 text-sm font-bold w-full" onclick="closeMobileFilters()">Apply Filters</button>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8 mt-4 lg:mt-0">
+<span id="product-count" class="text-sm font-medium text-on-surface-variant">48 products</span>
+<div class="flex items-center gap-2">
+<select id="sort-select" class="text-sm font-semibold bg-transparent border-0 focus:ring-0 cursor-pointer text-on-surface-variant pr-6">
+<option>Best Sellers</option>
+<option>Price: Low-High</option>
+<option>Price: High-Low</option>
+<option>Newest</option>
+<option>Best Reviewed</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Active filter chips row -->
+<div id="active-filters" class="hidden flex items-center gap-2 mt-3 flex-wrap px-6"></div>
+</section>
+
+<!-- Product Grid -->
+<section class="px-4 md:px-8 lg:px-16 max-w-[1400px] mx-auto mb-16">
+<div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+
+  <!-- Product Card 1 -->
+  <a href="#" class="group cursor-pointer block fade-up delay-1" data-category="collapsible" data-batch="1">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <span class="absolute top-6 left-6 z-10 bg-tertiary-fixed text-on-tertiary-fixed-variant px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">Best Seller</span>
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Premium Collapsible Koozie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5dXACKH8QZjO-WFS0Rf59oRck_95DZJe86cHTgpv_zdda9Mv3aWnZBgkt6VgxRna9amgvxhScSVGYzoARmcByRZfM8S4EhnDk2r2-acu-_8UgUPOXv7IGMkXHKvGRrzulKOcehY0WiLGYFKpytjjr5kcfUoboS7znuc9V1fkVntjY08cgkFMbnaVbFGrlQ09qbgUzZBuc-glH40O3Inv9ivKFJj6oenkCrfQxh9DaFHPjOIWU10NBYfeVasOumrWafWtUDZ8I7gXe">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Premium Collapsible Koozie</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500 fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500 fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500 fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500 fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500 fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(128)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 25 &middot; 104 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$1.29<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 2 -->
+  <a href="#" class="group cursor-pointer block fade-up delay-2" data-category="neoprene" data-batch="1">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Neoprene Can Cooler" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqB9XzIem5Q7-9xzGP4YfQbXeXxjiXR-QClCo257agl6OAweAWyaOqPSl353laKCvQyKEwjJs2H0vCLR2aEUk74_G_6zTzOQus_R1K0E9LTHyMwjIuD5TuOUMqQJJPTO3LE_qCruC4y_9SlT-YoRxbJ2vmAzGFY9fAqFvb-WNtYW5-r7rvuDVavGtX7UyG5ea4Sl4KwJCbxWH0PCv60EZg7eOHcxuFZ0pMBteKAVsfb7BW3p_ifMN3yWxd-fcAlNYswNZ7yQI9sTl7">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Neoprene Can Cooler</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-slate-300" style="font-variation-settings: 'FILL' 0;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(84)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 50 &middot; 42 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$2.49<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 3 -->
+  <a href="#" class="group cursor-pointer block fade-up delay-3" data-category="foam" data-batch="1">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <span class="absolute top-6 left-6 z-10 bg-orange-100 text-orange-700 px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">Trending</span>
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Full Color Foam Koozie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdQrH4jHLBYkzNdTIoGqG3eAg0Y_25-ddDCueL_Cs9kr5lpC5yT7J3Q3xd8bVGUd2De4sz12FLPLEoxTj7jY1-Nj-usXtaFHBP-GpQW460WGcd2MPYXTC0avJ7mA3fkzyVqfIBXLdEyworUh0e4izP7ZVPDR1JWm-qLxJDam6ftUufOVzjG_mCHGHklcOhwHAHUi19VIwfscJm1KFTkyEGEQGhLcKVolRB_XBe9Wcn_qQIyBGkIzZ0emZvzE8_KNEzGFxdzQMywNs5">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Full Color Foam Koozie</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(210)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 100 &middot; Unlimited Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$0.89<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 4 -->
+  <a href="#" class="group cursor-pointer block fade-up delay-1" data-category="slim" data-batch="1">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Slim Can Cooler" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgDIpQFfory9TYlpmP5yt9Hf_vNeyv0-_S0s3qODkN6XnS3bOH85xxcYG0uvqvKQI92rSXRu22Xsj5NSC3twjRLJVWhRROEu9uyyNIKL9vhttP0iPcfPf_Reuf7YMtIgRZygwJMMHUiIIMqJt3pzkNqp3ukSZhc8d2rlRrAyXnFAlmBWvoFoAnmXXvDo_n2vkcW9ZhtWaNKEC2Dk_jtcYrfBOrIPd-2drmIoZX4sv2qccXDOJqLnLsvXyTggpJpKy2tkD1fg8VlFH-">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Slim Can Cooler</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-slate-300" style="font-variation-settings: 'FILL' 0;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(45)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 50 &middot; 12 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$1.99<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 5 -->
+  <a href="#" class="group cursor-pointer block fade-up delay-2" data-category="neoprene" data-batch="1">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="BritePix Can Cooler" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8OGNgyQXAHpjD9Lk-5a8O6a_e68faQIbwdR93kvKJfQ1WFaiQ8AHGmTYkcW8bSmWt9a-jEd0XOY3t2SQN4TFwZ1NZ7el_ytj2FCbQxeWmNzs5jK9kkFnCL3ml9r4hvIypdzfMRTp984-F9DY2GRlXio-R_5p3yCy5qf8XjhI2iE-RYiHviHCMvc5ZckluUl4ND6llHwjcm74_GFHYZfbpYol-FpDXqHUzw_MXsuQxTDEacIgW6q-y_GCmqZ7fc-3HrMvlN2vcYB0v">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">BritePix Can Cooler</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(18)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 100 &middot; Photo Quality</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$3.49<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 6 -->
+  <a href="#" class="group cursor-pointer block fade-up delay-3" data-category="foam" data-batch="1">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Basic Foam Koozie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhDD5A-R-ZcaH7QKC4x2pqMolcB32Q22iFX4yPyfFGdNa1jSpLeK0ByG5181N42pxk1-JPzt-EUJ5X99PigpkBWD3rliMMYr2uSj90I6J6tmmjrE-c91CL4eqhM3TgGHw5ZvxKMFEiMol6AfO1LFeVrCsRAe2rF3lhE5TM26VApf2FipZG1ho5C7MADUy8UlqDAoqXhElF9SCEA4bbJnXsWQtPecdgSDHWDz1ebW_NCBlZW6IEbO9zeWBSOQy1BtOUCNe2VCg2Q1tf">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Basic Foam Koozie</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-slate-300" style="font-variation-settings: 'FILL' 0;">star</span>
+          <span class="material-symbols-outlined text-sm text-slate-300" style="font-variation-settings: 'FILL' 0;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(512)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 250 &middot; 20 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$0.59<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 7 -->
+  <a href="#" class="group cursor-pointer block fade-up delay-1" data-category="collapsible" data-batch="1">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Recycled Neoprene Cooler" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmo_EMlSrFHkCJiJ6QzXWl4OTvUmKL9zx-Y2GNVuRPfmYM5T2tFmL91QRNSvA3yuvFNjdXyKo97ucWFhHm4-lAxVQEe6S9ncsM90CLdQupQT8JFGBxMc771HYQ3vlrPvDmeqs3t0sksBMn_bQAMvXYD1Kow75uAC0bQTtzCo1iDNFEEhdlfTWZjHSx-v6_Tn4XHZdkQ08p6HFcjg0mDSeyMOBJGAiktxeI7FXZKXXDS7nmjckfAWiO5IP3MyG26yXN6HCPInks9pW8">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Recycled Neoprene Cooler</h3>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 100 &middot; Eco Friendly</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$2.99<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 8 -->
+  <a href="#" class="group cursor-pointer block fade-up delay-2" data-category="collapsible" data-batch="1">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Standard Fabric Koozie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5dXACKH8QZjO-WFS0Rf59oRck_95DZJe86cHTgpv_zdda9Mv3aWnZBgkt6VgxRna9amgvxhScSVGYzoARmcByRZfM8S4EhnDk2r2-acu-_8UgUPOXv7IGMkXHKvGRrzulKOcehY0WiLGYFKpytjjr5kcfUoboS7znuc9V1fkVntjY08cgkFMbnaVbFGrlQ09qbgUzZBuc-glH40O3Inv9ivKFJj6oenkCrfQxh9DaFHPjOIWU10NBYfeVasOumrWafWtUDZ8I7gXe">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Standard Fabric Koozie</h3>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 50 &middot; 12 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$1.15<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 9 -->
+  <a href="#" class="group cursor-pointer block fade-up delay-3" data-category="slim" data-batch="1">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Metallic Finish Sleeve" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgDIpQFfory9TYlpmP5yt9Hf_vNeyv0-_S0s3qODkN6XnS3bOH85xxcYG0uvqvKQI92rSXRu22Xsj5NSC3twjRLJVWhRROEu9uyyNIKL9vhttP0iPcfPf_Reuf7YMtIgRZygwJMMHUiIIMqJt3pzkNqp3ukSZhc8d2rlRrAyXnFAlmBWvoFoAnmXXvDo_n2vkcW9ZhtWaNKEC2Dk_jtcYrfBOrIPd-2drmIoZX4sv2qccXDOJqLnLsvXyTggpJpKy2tkD1fg8VlFH-">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Metallic Finish Sleeve</h3>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 50 &middot; Premium</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$4.99<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- BATCH 2 — hidden for infinite scroll -->
+
+  <!-- Product Card 10 -->
+  <a href="#" class="group cursor-pointer block hidden" data-category="neoprene" data-batch="2">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Waterproof Can Cooler" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqB9XzIem5Q7-9xzGP4YfQbXeXxjiXR-QClCo257agl6OAweAWyaOqPSl353laKCvQyKEwjJs2H0vCLR2aEUk74_G_6zTzOQus_R1K0E9LTHyMwjIuD5TuOUMqQJJPTO3LE_qCruC4y_9SlT-YoRxbJ2vmAzGFY9fAqFvb-WNtYW5-r7rvuDVavGtX7UyG5ea4Sl4KwJCbxWH0PCv60EZg7eOHcxuFZ0pMBteKAVsfb7BW3p_ifMN3yWxd-fcAlNYswNZ7yQI9sTl7">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Waterproof Can Cooler</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-slate-300" style="font-variation-settings: 'FILL' 0;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(72)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 50 &middot; 16 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$2.99<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 11 -->
+  <a href="#" class="group cursor-pointer block hidden" data-category="foam" data-batch="2">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Eco Recycled Koozie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdQrH4jHLBYkzNdTIoGqG3eAg0Y_25-ddDCueL_Cs9kr5lpC5yT7J3Q3xd8bVGUd2De4sz12FLPLEoxTj7jY1-Nj-usXtaFHBP-GpQW460WGcd2MPYXTC0avJ7mA3fkzyVqfIBXLdEyworUh0e4izP7ZVPDR1JWm-qLxJDam6ftUufOVzjG_mCHGHklcOhwHAHUi19VIwfscJm1KFTkyEGEQGhLcKVolRB_XBe9Wcn_qQIyBGkIzZ0emZvzE8_KNEzGFxdzQMywNs5">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Eco Recycled Koozie</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(98)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 50 &middot; 12 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$1.49<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 12 -->
+  <a href="#" class="group cursor-pointer block hidden" data-category="slim" data-batch="2">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Glitter Can Cooler" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgDIpQFfory9TYlpmP5yt9Hf_vNeyv0-_S0s3qODkN6XnS3bOH85xxcYG0uvqvKQI92rSXRu22Xsj5NSC3twjRLJVWhRROEu9uyyNIKL9vhttP0iPcfPf_Reuf7YMtIgRZygwJMMHUiIIMqJt3pzkNqp3ukSZhc8d2rlRrAyXnFAlmBWvoFoAnmXXvDo_n2vkcW9ZhtWaNKEC2Dk_jtcYrfBOrIPd-2drmIoZX4sv2qccXDOJqLnLsvXyTggpJpKy2tkD1fg8VlFH-">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Glitter Can Cooler</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-slate-300" style="font-variation-settings: 'FILL' 0;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(55)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 25 &middot; 24 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$2.29<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 13 -->
+  <a href="#" class="group cursor-pointer block hidden" data-category="collapsible" data-batch="2">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <span class="absolute top-6 left-6 z-10 bg-primary text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">New</span>
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Zippered Bottle Cooler" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8OGNgyQXAHpjD9Lk-5a8O6a_e68faQIbwdR93kvKJfQ1WFaiQ8AHGmTYkcW8bSmWt9a-jEd0XOY3t2SQN4TFwZ1NZ7el_ytj2FCbQxeWmNzs5jK9kkFnCL3ml9r4hvIypdzfMRTp984-F9DY2GRlXio-R_5p3yCy5qf8XjhI2iE-RYiHviHCMvc5ZckluUl4ND6llHwjcm74_GFHYZfbpYol-FpDXqHUzw_MXsuQxTDEacIgW6q-y_GCmqZ7fc-3HrMvlN2vcYB0v">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Zippered Bottle Cooler</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(34)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 25 &middot; 8 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$4.99<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 14 -->
+  <a href="#" class="group cursor-pointer block hidden" data-category="neoprene" data-batch="2">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Metallic Koozie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhDD5A-R-ZcaH7QKC4x2pqMolcB32Q22iFX4yPyfFGdNa1jSpLeK0ByG5181N42pxk1-JPzt-EUJ5X99PigpkBWD3rliMMYr2uSj90I6J6tmmjrE-c91CL4eqhM3TgGHw5ZvxKMFEiMol6AfO1LFeVrCsRAe2rF3lhE5TM26VApf2FipZG1ho5C7MADUy8UlqDAoqXhElF9SCEA4bbJnXsWQtPecdgSDHWDz1ebW_NCBlZW6IEbO9zeWBSOQy1BtOUCNe2VCg2Q1tf">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Metallic Koozie</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(118)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 25 &middot; 12 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$3.29<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+  <!-- Product Card 15 -->
+  <a href="#" class="group cursor-pointer block hidden" data-category="foam" data-batch="2">
+    <div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
+      <img class="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700" alt="Scuba Foam Koozie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdQrH4jHLBYkzNdTIoGqG3eAg0Y_25-ddDCueL_Cs9kr5lpC5yT7J3Q3xd8bVGUd2De4sz12FLPLEoxTj7jY1-Nj-usXtaFHBP-GpQW460WGcd2MPYXTC0avJ7mA3fkzyVqfIBXLdEyworUh0e4izP7ZVPDR1JWm-qLxJDam6ftUufOVzjG_mCHGHklcOhwHAHUi19VIwfscJm1KFTkyEGEQGhLcKVolRB_XBe9Wcn_qQIyBGkIzZ0emZvzE8_KNEzGFxdzQMywNs5">
+      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+        <button class="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-primary font-bold px-8 py-3 rounded-full shadow-xl">Customize Now</button>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+      <div>
+        <h3 class="font-headline text-xl font-extrabold text-on-background mb-1">Scuba Foam Koozie</h3>
+        <div class="flex items-center gap-1 mb-2">
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-sm text-slate-300" style="font-variation-settings: 'FILL' 0;">star</span>
+          <span class="text-xs font-medium text-slate-400 ml-1">(134)</span>
+        </div>
+        <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Min 100 &middot; 24 Colors</span>
+      </div>
+      <span class="font-headline text-lg font-extrabold text-primary">$1.09<span class="text-sm font-medium">/ea</span></span>
+    </div>
+  </a>
+
+<!-- Load More button -->
+<div id="load-more-wrap" class="hidden col-span-full flex justify-center pt-2">
+<button id="load-more-btn" class="bg-white border border-outline-variant text-on-surface-variant font-bold text-sm px-8 py-3 rounded-full hover:border-primary hover:text-primary transition-all">Load More</button>
+</div>
+<!-- Intersection Observer sentinel -->
+<div id="scroll-sentinel" class="h-1 col-span-full"></div>
+<!-- Loading indicator -->
+<div id="load-indicator" class="hidden flex flex-col items-center gap-3 py-4 col-span-full">
+  <div class="spinner"></div>
+  <p class="text-secondary text-sm">Loading more products...</p>
+</div>
+<!-- End message -->
+<p id="end-message" class="hidden text-secondary text-sm text-center py-4 col-span-full">You've seen all <span id="total-count">24</span> products</p>
+<!-- Empty state -->
+<div id="empty-state" class="hidden text-center py-12 col-span-full">
+  <span class="material-symbols-outlined text-6xl text-outline mb-4">search_off</span>
+  <h3 class="font-headline text-xl font-bold mb-2">No products match your filters</h3>
+  <p class="text-secondary text-sm mb-6">Try adjusting your filters or browse all products</p>
+  <button id="clear-filters-btn" class="btn-primary bg-primary text-white rounded-full py-3 px-8 text-sm font-bold">Clear All Filters</button>
+</div>
+</div>
+</section>
+
+<!-- Bulk Order + Eco Strip -->
+<section class="px-4 md:px-8 lg:px-16 max-w-[1400px] mx-auto mb-16">
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#" class="flex-1 flex items-center gap-4 bg-surface-container rounded-xl px-6 py-5 group hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-3xl text-primary">inventory_2</span>
+<div class="flex-1 min-w-0">
+<h3 class="font-bold text-sm text-on-surface">Planning a bulk order?</h3>
+<p class="text-xs text-secondary">Custom pricing &amp; free design help for 500+ units.</p>
+</div>
+<span class="material-symbols-outlined text-lg text-secondary group-hover:text-primary transition-colors">arrow_forward</span>
+</a>
+<a href="#" class="flex-1 flex items-center gap-4 bg-surface-container rounded-xl px-6 py-5 group hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-3xl text-primary">eco</span>
+<div class="flex-1 min-w-0">
+<h3 class="font-bold text-sm text-on-surface">Eco-Friendly Options</h3>
+<p class="text-xs text-secondary">Ask about our recycled neoprene collection.</p>
+</div>
+<span class="material-symbols-outlined text-lg text-secondary group-hover:text-primary transition-colors">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Looking for Something Else -->
+<section class="px-4 md:px-8 lg:px-16 max-w-[1400px] mx-auto mb-12 fade-up">
+<h2 class="font-headline text-3xl font-extrabold text-on-surface tracking-tighter mb-10 text-center">Looking for Something Else?</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+<!-- Category: T-Shirts -->
+<a href="#" class="group text-center">
+<div class="aspect-square bg-surface-container-low rounded-xl overflow-hidden mb-4 group-hover:shadow-lg transition-shadow">
+<div class="w-full h-full flex items-center justify-center bg-surface-container group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-5xl text-primary/60 group-hover:text-primary transition-colors">checkroom</span>
+</div>
+</div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Custom T-Shirts</h3>
+</a>
+<!-- Category: Tote Bags -->
+<a href="#" class="group text-center">
+<div class="aspect-square bg-surface-container-low rounded-xl overflow-hidden mb-4 group-hover:shadow-lg transition-shadow">
+<div class="w-full h-full flex items-center justify-center bg-surface-container group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-5xl text-primary/60 group-hover:text-primary transition-colors">shopping_bag</span>
+</div>
+</div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Tote Bags</h3>
+</a>
+<!-- Category: Water Bottles -->
+<a href="#" class="group text-center">
+<div class="aspect-square bg-surface-container-low rounded-xl overflow-hidden mb-4 group-hover:shadow-lg transition-shadow">
+<div class="w-full h-full flex items-center justify-center bg-surface-container group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-5xl text-primary/60 group-hover:text-primary transition-colors">water_bottle</span>
+</div>
+</div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Water Bottles</h3>
+</a>
+<!-- Category: Pens -->
+<a href="#" class="group text-center">
+<div class="aspect-square bg-surface-container-low rounded-xl overflow-hidden mb-4 group-hover:shadow-lg transition-shadow">
+<div class="w-full h-full flex items-center justify-center bg-surface-container group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-5xl text-primary/60 group-hover:text-primary transition-colors">edit</span>
+</div>
+</div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Custom Pens</h3>
+</a>
+<!-- Category: Hats -->
+<a href="#" class="group text-center">
+<div class="aspect-square bg-surface-container-low rounded-xl overflow-hidden mb-4 group-hover:shadow-lg transition-shadow">
+<div class="w-full h-full flex items-center justify-center bg-surface-container group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-5xl text-primary/60 group-hover:text-primary transition-colors">headphones</span>
+</div>
+</div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Hats &amp; Caps</h3>
+</a>
+<!-- Category: Stickers -->
+<a href="#" class="group text-center">
+<div class="aspect-square bg-surface-container-low rounded-xl overflow-hidden mb-4 group-hover:shadow-lg transition-shadow">
+<div class="w-full h-full flex items-center justify-center bg-surface-container group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-5xl text-primary/60 group-hover:text-primary transition-colors">sticky_note_2</span>
+</div>
+</div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Stickers &amp; Labels</h3>
+</a>
+</div>
+</section>
+</main>
+
+<!-- Stay in the Loop -->
+<section class="bg-surface-container py-16 px-4 md:px-8 lg:px-16 relative overflow-hidden">
+<!-- Background product images -->
+<div class="absolute inset-0 hidden md:flex items-center justify-between pointer-events-none">
+<div class="flex gap-4 -ml-4 opacity-75">
+<img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl -rotate-6">
+<img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl rotate-3 translate-y-8">
+<img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl -rotate-2 -translate-y-4">
+</div>
+<div class="flex gap-4 -mr-4 opacity-75">
+<img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl rotate-2 translate-y-6">
+<img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl rotate-6 -translate-y-2">
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&q=80&fit=crop" alt="" class="w-40 h-52 object-cover rounded-2xl -rotate-3 translate-y-10">
+</div>
+</div>
+<!-- Content -->
+<div class="max-w-lg mx-auto text-center relative z-10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block">mail</span>
+<h2 class="font-headline text-2xl md:text-3xl font-extrabold tracking-tight text-on-surface mb-2">Stay in the Loop</h2>
+<p class="text-secondary text-sm mb-6 max-w-md mx-auto">Exclusive deals, new drops, and branding tips. No spam, ever.</p>
+<form class="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto" onsubmit="event.preventDefault()">
+<input type="email" placeholder="you@company.com" class="flex-1 px-5 py-2.5 rounded-full bg-white border border-outline-variant text-on-surface placeholder:text-secondary text-sm focus:outline-none focus:border-primary transition">
+<button type="submit" class="bg-primary text-on-primary font-bold text-sm px-6 py-2.5 rounded-full hover:opacity-90 hover:scale-[1.02] transition-all">Subscribe</button>
+</form>
+<p class="text-secondary/50 text-xs mt-3">Join 10,000+ brands. Unsubscribe anytime.</p>
+</div>
+</section>
+
+<footer class="bg-[#0a1628] text-white">
+<div class="max-w-[1400px] mx-auto px-4 pt-16 pb-6 md:px-8 lg:px-16 lg:pt-24">
+<div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+<!-- Brand Column -->
+<div>
+<div class="flex items-center gap-2">
+<img src="logos/SwagPrint-Horizontal-Logo-RGB-Dark.png" alt="SwagPrint" class="h-7 w-auto object-contain brightness-0 invert">
+</div>
+<p class="text-white/50 mt-6 max-w-xs text-sm leading-relaxed">
+Building beautiful and functional branded merchandise experiences. We help startups and businesses create their physical brand presence.
+</p>
+<ul class="mt-8 flex gap-5">
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="Facebook">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="Instagram">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="Twitter / X">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="LinkedIn">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="TikTok">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+</a></li>
+</ul>
+</div>
+<!-- Link Columns -->
+<div class="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-2">
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Company</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/about-us">About Us</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/faq">FAQ</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/catalogs">Catalogs</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/privacy-policy">Privacy Policy</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/shipping-policy">Shipping Policy</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/terms-conditions">Terms And Conditions</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/contact-us">Contact Us</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/accessibility">Accessibility Statement</a></li>
+</ul>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Customers</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/login">My Account</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/track-order">Track Order</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/how-to-place-purchase-order">Purchase Order</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/free-sample">Free Samples</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/return-policy">Returns Policy</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/submit-artwork">Upload Artwork</a></li>
+</ul>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Resources</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/customer-reviews?t=2">Customer Reviews</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/customer-reviews?t=2">Customer Photos</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/resources">Product Resources</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/product-templates">Product Templates</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/bandbucks">Band Bucks</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/blog">Blog</a></li>
+</ul>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Contact Us</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition flex items-center gap-2" href="tel:1-844-770-2326"><span class="material-symbols-outlined text-base">phone</span> 1-844-770-2326</a></li>
+<li><a class="text-white/60 hover:text-white transition flex items-center gap-2" href="mailto:sales@swagprint.com"><span class="material-symbols-outlined text-base">mail</span> sales@swagprint.com</a></li>
+<li><a class="text-white/60 hover:text-white transition flex items-center gap-2" href="mailto:support@swagprint.com"><span class="material-symbols-outlined text-base">support_agent</span> support@swagprint.com</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:justify-between text-center text-xs text-white/40">
+<p>&copy; 2025 SwagPrint. All rights reserved.</p>
+<p class="mt-2 sm:mt-0">Architectural Precision in Every Artifact.</p>
+</div>
+</div>
+</footer>
+
+<script>
+// === Filter chip toggling ===
+const filterChips = document.querySelectorAll('.filter-chip');
+const productCards = document.querySelectorAll('[data-category]');
+const productCount = document.getElementById('product-count');
+const activeFiltersRow = document.getElementById('active-filters');
+const emptyState = document.getElementById('empty-state');
+const clearFiltersBtn = document.getElementById('clear-filters-btn');
+let currentFilter = 'all';
+
+filterChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    filterChips.forEach(c => {
+      c.classList.remove('active', 'bg-primary', 'text-on-primary');
+      c.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+    });
+    chip.classList.add('active', 'bg-primary', 'text-on-primary');
+    chip.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+    currentFilter = chip.dataset.filter;
+    applyFilters();
+  });
+});
+
+function applyFilters() {
+  let visibleCount = 0;
+  productCards.forEach(card => {
+    const match = currentFilter === 'all' || card.dataset.category === currentFilter;
+    if (currentFilter === 'all') {
+      if (card.dataset.batch === '1' || !card.classList.contains('hidden')) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    } else {
+      if (match && (card.dataset.batch === '1' || !card.classList.contains('hidden'))) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    }
+  });
+  productCount.textContent = visibleCount + ' products';
+  emptyState.classList.toggle('hidden', visibleCount > 0);
+  document.getElementById('product-grid').classList.toggle('hidden', visibleCount === 0);
+
+  if (currentFilter !== 'all') {
+    activeFiltersRow.classList.remove('hidden');
+    activeFiltersRow.innerHTML = '<span class="bg-surface-container rounded-full text-sm px-3 py-1 flex items-center gap-1">' + currentFilter + '<button onclick="resetFilter()" class="ml-1 text-secondary hover:text-on-surface">&times;</button></span>';
+  } else {
+    activeFiltersRow.classList.add('hidden');
+    activeFiltersRow.innerHTML = '';
+  }
+}
+
+function resetFilter() {
+  filterChips[0].click();
+}
+if (clearFiltersBtn) clearFiltersBtn.addEventListener('click', resetFilter);
+
+// === More Filters panel toggle ===
+const moreFiltersBtn = document.getElementById('more-filters-btn');
+const moreFiltersPanel = document.getElementById('more-filters-panel');
+const mobileFiltersPanel = document.getElementById('mobile-filters-panel');
+
+moreFiltersBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (window.innerWidth < 640) {
+    mobileFiltersPanel.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  } else {
+    moreFiltersPanel.classList.toggle('hidden');
+  }
+});
+document.addEventListener('click', () => moreFiltersPanel.classList.add('hidden'));
+moreFiltersPanel.addEventListener('click', (e) => e.stopPropagation());
+
+function closeMobileFilters() {
+  mobileFiltersPanel.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+// === Sort dropdown ===
+const sortSelect = document.getElementById('sort-select');
+sortSelect.addEventListener('change', () => {
+  const grid = document.getElementById('product-grid');
+  const cards = [...grid.querySelectorAll('[data-category]')];
+  grid.style.opacity = '0';
+  grid.style.transition = 'opacity 0.2s ease';
+  setTimeout(() => {
+    cards.sort((a, b) => {
+      const priceA = parseFloat(a.querySelector('.text-primary').textContent.replace(/[^0-9.]/g, ''));
+      const priceB = parseFloat(b.querySelector('.text-primary').textContent.replace(/[^0-9.]/g, ''));
+      if (sortSelect.value === 'Price: Low-High') return priceA - priceB;
+      if (sortSelect.value === 'Price: High-Low') return priceB - priceA;
+      return 0;
+    });
+    cards.forEach(card => grid.appendChild(card));
+    grid.style.opacity = '1';
+  }, 200);
+});
+
+// === Load More button ===
+const loadIndicator = document.getElementById('load-indicator');
+const endMessage = document.getElementById('end-message');
+const loadMoreWrap = document.getElementById('load-more-wrap');
+const loadMoreBtn = document.getElementById('load-more-btn');
+const sentinel = document.getElementById('scroll-sentinel');
+let batch2Revealed = false;
+
+// Show Load More button when user scrolls near the sentinel
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !batch2Revealed) {
+      loadMoreWrap.classList.remove('hidden');
+      scrollObserver.disconnect();
+    }
+  });
+}, { rootMargin: '200px' });
+
+scrollObserver.observe(sentinel);
+
+function revealBatch2() {
+  batch2Revealed = true;
+  loadMoreWrap.classList.add('hidden');
+  loadIndicator.classList.remove('hidden');
+  setTimeout(() => {
+    document.querySelectorAll('[data-batch="2"]').forEach((card, i) => {
+      card.classList.remove('hidden');
+      card.classList.add('fade-up');
+      card.style.transitionDelay = (i * 0.05) + 's';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => card.classList.add('visible'));
+      });
+    });
+    loadIndicator.classList.add('hidden');
+    endMessage.classList.remove('hidden');
+    if (currentFilter !== 'all') applyFilters();
+  }, 600);
+}
+
+loadMoreBtn.addEventListener('click', revealBatch2);
+
+// === Fade-up animation for initial cards ===
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+// === Search toggle ===
+const searchToggle = document.getElementById('search-toggle');
+const searchOverlay = document.getElementById('search-overlay');
+const searchInput = document.getElementById('search-input');
+if (searchToggle && searchOverlay) {
+  searchToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    searchOverlay.classList.toggle('hidden');
+    if (!searchOverlay.classList.contains('hidden') && searchInput) searchInput.focus();
+  });
+  document.addEventListener('click', () => searchOverlay.classList.add('hidden'));
+  searchOverlay.addEventListener('click', (e) => e.stopPropagation());
+}
+</script>
+</body>
+</html>

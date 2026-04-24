@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Custom Lanyards | SwagPrint</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#92ceb4",
+                        "secondary": "#4d635b",
+                        "surface-tint": "#4c6077",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e9e8",
+                        "secondary-fixed-dim": "#b4ccc2",
+                        "primary-fixed": "#d0e4ff",
+                        "primary-fixed-dim": "#b4c8e3",
+                        "background": "#f8faf9",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#3d5167",
+                        "tertiary": "#00412f",
+                        "on-tertiary-fixed-variant": "#11503c",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#d0e8de",
+                        "on-primary-container": "#afc3dd",
+                        "on-tertiary-fixed": "#002116",
+                        "on-secondary-fixed-variant": "#364b44",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#97d3b9",
+                        "surface-variant": "#e1e3e2",
+                        "surface": "#f8faf9",
+                        "surface-container-low": "#f2f4f3",
+                        "on-background": "#191c1c",
+                        "outline-variant": "#c4c6cd",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#0a1f19",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#061d31",
+                        "inverse-primary": "#b4c8e3",
+                        "surface-container": "#eceeed",
+                        "on-secondary-container": "#51675f",
+                        "tertiary-container": "#1c5945",
+                        "surface-bright": "#f8faf9",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e1e3e2",
+                        "inverse-surface": "#2e3131",
+                        "surface-dim": "#d8dad9",
+                        "on-primary-fixed-variant": "#34485e",
+                        "secondary-container": "#cde5db",
+                        "on-surface": "#191c1c",
+                        "tertiary-fixed": "#b2f0d4",
+                        "primary": "#263a4f",
+                        "on-surface-variant": "#43474c",
+                        "inverse-on-surface": "#eff1f0",
+                        "outline": "#74777d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8faf9;
+            color: #191c1c;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar Component -->
+<header class="sticky top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl shadow-[0_20px_40px_rgba(10,22,40,0.06)]">
+<nav class="flex items-center justify-between px-8 py-4 w-full max-w-7xl mx-auto">
+<div class="text-2xl font-black text-slate-900 dark:text-white tracking-tighter">SwagPrint</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-900 dark:text-white font-bold border-b-2 border-slate-900 dark:border-white pb-1 transition-colors duration-200" href="#">Products</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-white transition-colors duration-200" href="#">Design Studio</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-white transition-colors duration-200" href="#">Bulk Orders</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-white transition-colors duration-200" href="#">Sustainability</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-outline mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Search swag..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-slate-800 dark:text-slate-100 scale-95 active:scale-100 transition-transform">shopping_bag</button>
+<button class="material-symbols-outlined text-slate-800 dark:text-slate-100 scale-95 active:scale-100 transition-transform">person</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Breadcrumb -->
+<nav class="max-w-7xl mx-auto px-8 mt-12 mb-8">
+<div class="flex items-center gap-2 text-[13px] font-medium text-secondary">
+<span>Home</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Lanyards</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface">Custom Lanyards</span>
+</div>
+</nav>
+<!-- Product Hero -->
+<section class="max-w-7xl mx-auto px-8 mb-24 flex flex-col lg:flex-row gap-16">
+<!-- Left: Gallery -->
+<div class="lg:w-[55%]">
+<div class="bg-surface-container-lowest rounded-lg p-12 mb-6 shadow-[0_20px_40px_rgba(10,22,40,0.06)] overflow-hidden aspect-square flex items-center justify-center">
+<img alt="Custom Sublimation Lanyard" class="w-full h-full object-contain" data-alt="Close up shot of a vibrant full-color sublimation lanyard with complex floral patterns and a metal lobster claw clip on a clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ0uLE8IUdpVSHm9IVGrfaowB1q5k21MMYGH1Zt6oTTNF5TqW4YjCO1bJSUOdPEQ_pjWyIlwE4nrCWDUv6nsAUtiW50Y10EeGwOPzXkwmcRcGyjOwBnIX_xm5sFC1XhhJTPsXmr-_D08IxFw13QRep3bHgeSOw22GPZNpkJ2mBo2clpOvbbyDvrpxJcIUD3YlsmgfvCxaSd4W6GXiCs8_o-JEwP1r47w6m6BwbZ0PyopUot1BS5eUAYnKTx6Wn3vCII6y1Z_iV4WsO"/>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-[0_20px_40px_rgba(10,22,40,0.04)]"><div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span></div><p class="text-on-surface-variant italic mb-4 text-[13px] line-clamp-2">"The color reproduction is absolutely stunning. We ordered 1000 for our tech conference and every single one was perfect."</p><div class="flex items-center"><div><span class="block font-bold text-on-surface text-[12px]">Sarah R.</span><span class="block text-[11px] text-secondary font-medium">Event Coordinator</span></div></div></div>
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-[0_20px_40px_rgba(10,22,40,0.04)]"><div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span></div><p class="text-on-surface-variant italic mb-4 text-[13px] line-clamp-2">"Fast turnaround and excellent design support. They helped me clean up my logo so it would pop on the lanyards."</p><div class="flex items-center"><div><span class="block font-bold text-on-surface text-[12px]">Mark K.</span><span class="block text-[11px] text-secondary font-medium">Marketing Director</span></div></div></div>
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-[0_20px_40px_rgba(10,22,40,0.04)]"><div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span></div><p class="text-on-surface-variant italic mb-4 text-[13px] line-clamp-2">"Durable and comfortable. We use these for our staff security badges and they've held up through daily wear."</p><div class="flex items-center"><div><span class="block font-bold text-on-surface text-[12px]">James L.</span><span class="block text-[11px] text-secondary font-medium">HR Manager</span></div></div></div>
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-[0_20px_40px_rgba(10,22,40,0.04)]">
+<img alt="Thumbnail 4" class="w-full h-full object-cover" data-alt="Array of various lanyard attachment options like safety breakaways and metal hooks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB73uuzak1RPa-iDO6iCJAopVrvxw1Sj1ICXUTLMEaQot6d2PzkvFFTPSAxbCVouTGlgo-YLimQqjFo62fqpRjRTxTFaobfSvDNytmt-oDrgm1ZoDaRWZ9R5zdTqJHogqdZEuEOWGkUwU_8WCTrUjoJwukuV4oEVnneFfV9L5_8FvdPEDPf80WJgYYQpiBIWmlzlPQ_qi41TJ0t50_CHjiyIZRjlqO279fRDtxfVJLCS9KnedAmJvBgU2H24c7wgftuA2hYq4KAQrNh"/>
+</div>
+</div>
+</div>
+<!-- Right: Configurator -->
+<div class="lg:w-[45%]">
+<div class="mb-6">
+<h1 class="text-4xl font-extrabold tracking-tighter text-on-surface mb-3 leading-tight">Custom Lanyards</h1>
+<div class="flex items-center gap-2 mb-3">
+<div class="flex text-[#FFD700]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-sm font-medium text-secondary">(5,900+ reviews)</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                        Premium custom lanyards for events, conferences, and everyday use. Design yours in minutes.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container-low text-secondary text-[12px] font-bold uppercase tracking-wider rounded-full">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Free Shipping
+                        </span>
+<span class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container-low text-secondary text-[12px] font-bold uppercase tracking-wider rounded-full">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Free Setup
+                        </span>
+<span class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container-low text-secondary text-[12px] font-bold uppercase tracking-wider rounded-full">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> No Minimums
+                        </span>
+</div>
+</div>
+<!-- Style Selector -->
+<div class="mb-8">
+<label class="block text-[10px] font-black uppercase tracking-[0.2em] text-secondary mb-4">Choose Your Style</label>
+<div class="grid grid-cols-2 gap-3">
+<!-- Sublimation (Selected) -->
+<button class="relative text-left p-3 rounded-xl bg-surface-container-lowest ring-2 ring-primary transition-all group">
+<div class="h-20 bg-surface-container-low rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+<img alt="Sublimation" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ0uLE8IUdpVSHm9IVGrfaowB1q5k21MMYGH1Zt6oTTNF5TqW4YjCO1bJSUOdPEQ_pjWyIlwE4nrCWDUv6nsAUtiW50Y10EeGwOPzXkwmcRcGyjOwBnIX_xm5sFC1XhhJTPsXmr-_D08IxFw13QRep3bHgeSOw22GPZNpkJ2mBo2clpOvbbyDvrpxJcIUD3YlsmgfvCxaSd4W6GXiCs8_o-JEwP1r47w6m6BwbZ0PyopUot1BS5eUAYnKTx6Wn3vCII6y1Z_iV4WsO"/>
+</div>
+<div class="absolute top-2 right-2 bg-primary text-on-primary rounded-full p-0.5">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div class="font-bold text-[13px] text-on-surface">Sublimation (Full Color)</div>
+<div class="text-[11px] text-secondary">From $0.99/ea</div>
+</button>
+<!-- Polyester -->
+<button class="text-left p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+<div class="h-20 bg-surface-container-low rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+<img alt="Polyester" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXatpoZApDv7c32tPv_an-vhqW27fhaeK0rDUWafMKjEhy769Z6WrSPBETWg1GikL1eIrW7_2997FOj8x3GV7O43jbJt8Bfj2p-9TwJQPznusD3vMfofPPM-RtvVWE_CeAZgU4dFc0zADat3lYZJb1YU68r2DRtxmKpmEvaxHjbw3AwLYEwJN3zGMNsJ2L9DYuR0QFJeC6qKLHjvGpQIxZizywAcL-jqqc_McghPuCSDSFhrM4O2Hh0NvUlPalwe6XpCZUov_Cm5Ce"/>
+</div>
+<div class="font-bold text-[13px] text-on-surface">Polyester (Screen Print)</div>
+<div class="text-[11px] text-secondary">From $0.79/ea</div>
+</button>
+<!-- Woven -->
+<button class="text-left p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+<div class="h-20 bg-surface-container-low rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+<img alt="Woven" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRzlDSKIpvCrTyojXhWpfQu5VHLK64TAAjK8jqt8Vw5EdfalHYj097gHL1ZtBugEVXbhrRnnaDosiVWUiS8o_iSe3aXUo8D9GhamNrTqjO8s-LTa8pyp7T2ZgCG1VSinWhIMC_bdjj4KSCLDIPHSgFFoROQDNG3Puk3hbwAf5SRCrN9mMr3iPw1VwSwOgNxElFzK0TIl5bp_YHbTCku8Hl5qlob6qKHeiefcXqPxoGmvio2rTaomeh8_uNcxXj2Ow7IeBvm3kfJOTI"/>
+</div>
+<div class="font-bold text-[13px] text-on-surface">Woven</div>
+<div class="text-[11px] text-secondary">From $1.29/ea</div>
+</button>
+<!-- Nylon -->
+<button class="text-left p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+<div class="h-20 bg-surface-container-low rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+<img alt="Nylon" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH3mWn5C14BFuJAe8cCDwNNrwY6I57sw-vJVuU7BLLFQBMYsmxP4INwS9ik9jv46e5JryT2lC2423Z49jcZIJnszqJMoxW4EblImMBErKZKaQwtSvNnIj-ArsmKd3f7-GYf7P4IrAs5kmQ2hkN4RGj-KId5UZyz-v61uOASz6oWYmuDQhfd-9RTGuf__nGTKEBjhoZpWiF9GtMaLY0UPY52Asdy6fI77M5oCWQQgyLyc4lZh-Icv-rSUqUZMEg3YUVBS8769a1amR0"/>
+</div>
+<div class="font-bold text-[13px] text-on-surface">Nylon</div>
+<div class="text-[11px] text-secondary">From $0.89/ea</div>
+</button>
+</div>
+</div>
+<div class="mb-8">
+<label class="block text-[10px] font-black uppercase tracking-[0.2em] text-secondary mb-4">Select Width</label>
+<div class="flex gap-3">
+<button class="px-5 py-2.5 bg-surface-container text-on-surface text-sm font-semibold rounded-full hover:bg-surface-variant transition-colors">3/8 inch</button>
+<button class="px-5 py-2.5 bg-primary text-on-primary text-sm font-semibold rounded-full shadow-md">3/4 inch</button>
+<button class="px-5 py-2.5 bg-surface-container text-on-surface text-sm font-semibold rounded-full hover:bg-surface-variant transition-colors">1 inch</button>
+</div>
+</div>
+<div class="mb-10">
+<label class="block text-[10px] font-black uppercase tracking-[0.2em] text-secondary mb-4">Quantity</label>
+<div class="flex items-center gap-4 mb-4">
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant rounded-full overflow-hidden">
+<button class="p-3 hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<input class="w-16 text-center bg-transparent border-none focus:ring-0 font-bold" type="text" value="100"/>
+<button class="p-3 hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<div class="flex-1 bg-surface-container-low px-6 py-3 rounded-full text-center">
+<span class="text-sm font-bold text-on-surface-variant">$0.99/ea × 100 = <span class="text-primary text-lg">$99.00</span></span>
+</div>
+</div>
+</div>
+<div class="mb-4">
+<button class="w-full py-5 bg-primary hover:bg-slate-800 text-white font-bold rounded-full flex items-center justify-center gap-3 transition-all duration-300 transform active:scale-[0.98]">
+                    Start Designing — $99.00
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<p class="text-[11px] text-center text-on-surface-variant font-medium tracking-wide">
+                Free digital proof · 7-10 day turnaround · Bulk discounts available
+            </p>
+</div>
+</section>
+<!-- Details Section -->
+<section class="bg-[#f0f4f2] py-10">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-16">
+<div>
+<div class="text-[11px] font-semibold uppercase tracking-widest text-secondary mb-6">About This Product</div>
+<div class="space-y-4 text-on-surface-variant"><ul class="flex flex-col gap-[6px] text-[13px] font-['Inter'] leading-[1.4]">
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-[#8ECAB0] font-bold">check</span>
+<span>Full-color edge-to-edge printing</span>
+</li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-[#8ECAB0] font-bold">check</span>
+<span>Premium polyester material</span>
+</li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-[#8ECAB0] font-bold">check</span>
+<span>Safety breakaway clasp included</span>
+</li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-[#8ECAB0] font-bold">check</span>
+<span>Customizable in Design Studio</span>
+</li>
+<li class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-[#8ECAB0] font-bold">check</span>
+<span>Bulk discounts up to 60% off</span>
+</li>
+</ul></div>
+</div>
+<div>
+<div class="text-[11px] font-semibold uppercase tracking-widest text-secondary mb-6">Specifications</div>
+<div class="space-y-4"><div class="flex flex-col gap-[4px] text-[13px] font-['Inter']">
+<div class="flex justify-between py-1">
+<span class="text-secondary">Material</span>
+<span class="text-on-surface font-medium">Polyester</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-secondary">Width</span>
+<span class="text-on-surface font-medium">3/8", 3/4", 1"</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-secondary">Length</span>
+<span class="text-on-surface font-medium">36"</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-secondary">Print</span>
+<span class="text-on-surface font-medium">Dye sublimation</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-secondary">Min Order</span>
+<span class="text-on-surface font-medium">None</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-secondary">Production</span>
+<span class="text-on-surface font-medium">7-10 days</span>
+</div>
+</div></div>
+</div>
+<div>
+<div class="text-[11px] font-semibold uppercase tracking-widest text-secondary mb-6">Perfect For</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-[11px] font-medium">Corporate Events</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-[11px] font-medium">Conferences</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-[11px] font-medium">Schools</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-[11px] font-medium">Healthcare</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-[11px] font-medium">Trade Shows</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-[11px] font-medium">Festivals</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="max-w-7xl mx-auto px-8">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="font-extrabold tracking-tighter mb-4 text-xl">What Customers Say</h2>
+<div class="flex items-center gap-3 flex-wrap">
+<span class="font-black text-primary text-2xl">4.9/5</span>
+<div class="flex text-[#FFD700]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="text-sm font-medium text-secondary">Based on 5,900+ verified orders</span>
+</div>
+</div>
+<button class="px-8 py-3 bg-surface-container text-on-surface font-bold rounded-full hover:bg-surface-variant transition-colors">See All Reviews</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Review Card 1 -->
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-[0_20px_40px_rgba(10,22,40,0.04)]"><div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span></div><p class="text-on-surface-variant italic mb-4 text-[13px] line-clamp-2">"The color reproduction is absolutely stunning. We ordered 1000 for our tech conference and every single one was perfect."</p><div class="flex items-center"><div><span class="block font-bold text-on-surface text-[12px]">Sarah R.</span><span class="block text-[11px] text-secondary font-medium">Event Coordinator</span></div></div></div>
+<!-- Review Card 2 -->
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-[0_20px_40px_rgba(10,22,40,0.04)]"><div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span></div><p class="text-on-surface-variant italic mb-4 text-[13px] line-clamp-2">"Fast turnaround and excellent design support. They helped me clean up my logo so it would pop on the lanyards."</p><div class="flex items-center"><div><span class="block font-bold text-on-surface text-[12px]">Mark K.</span><span class="block text-[11px] text-secondary font-medium">Marketing Director</span></div></div></div>
+<!-- Review Card 3 -->
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-[0_20px_40px_rgba(10,22,40,0.04)]"><div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span></div><p class="text-on-surface-variant italic mb-4 text-[13px] line-clamp-2">"Durable and comfortable. We use these for our staff security badges and they've held up through daily wear."</p><div class="flex items-center"><div><span class="block font-bold text-on-surface text-[12px]">James L.</span><span class="block text-[11px] text-secondary font-medium">HR Manager</span></div></div></div>
+</div>
+</section>
+<!-- Related Products -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-8">
+<h2 class="text-3xl font-extrabold tracking-tight mb-12">You May Also Like</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-6 group cursor-pointer hover:shadow-xl transition-all">
+<div class="aspect-square bg-surface-container rounded-lg mb-4 overflow-hidden">
+<img alt="Polyester Lanyards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Stack of solid color polyester lanyards in a clean minimalist layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXatpoZApDv7c32tPv_an-vhqW27fhaeK0rDUWafMKjEhy769Z6WrSPBETWg1GikL1eIrW7_2997FOj8x3GV7O43jbJt8Bfj2p-9TwJQPznusD3vMfofPPM-RtvVWE_CeAZgU4dFc0zADat3lYZJb1YU68r2DRtxmKpmEvaxHjbw3AwLYEwJN3zGMNsJ2L9DYuR0QFJeC6qKLHjvGpQIxZizywAcL-jqqc_McghPuCSDSFhrM4O2Hh0NvUlPalwe6XpCZUov_Cm5Ce"/>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Polyester Lanyards</h4>
+<div class="flex items-center justify-between">
+<span class="text-sm text-secondary font-medium">Starting at</span>
+<span class="text-lg font-black text-primary">$0.79</span>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-6 group cursor-pointer hover:shadow-xl transition-all">
+<div class="aspect-square bg-surface-container rounded-lg mb-4 overflow-hidden">
+<img alt="Woven Lanyards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Macro photo of woven lanyard fabric showing the textured logo embroidery and high-end finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRzlDSKIpvCrTyojXhWpfQu5VHLK64TAAjK8jqt8Vw5EdfalHYj097gHL1ZtBugEVXbhrRnnaDosiVWUiS8o_iSe3aXUo8D9GhamNrTqjO8s-LTa8pyp7T2ZgCG1VSinWhIMC_bdjj4KSCLDIPHSgFFoROQDNG3Puk3hbwAf5SRCrN9mMr3iPw1VwSwOgNxElFzK0TIl5bp_YHbTCku8Hl5qlob6qKHeiefcXqPxoGmvio2rTaomeh8_uNcxXj2Ow7IeBvm3kfJOTI"/>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Woven Lanyards</h4>
+<div class="flex items-center justify-between">
+<span class="text-sm text-secondary font-medium">Starting at</span>
+<span class="text-lg font-black text-primary">$1.29</span>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="bg-surface-container-lowest rounded-lg p-6 group cursor-pointer hover:shadow-xl transition-all">
+<div class="aspect-square bg-surface-container rounded-lg mb-4 overflow-hidden">
+<img alt="Nylon Lanyards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sleek shiny nylon lanyards reflecting light showing their smooth texture and bright colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH3mWn5C14BFuJAe8cCDwNNrwY6I57sw-vJVuU7BLLFQBMYsmxP4INwS9ik9jv46e5JryT2lC2423Z49jcZIJnszqJMoxW4EblImMBErKZKaQwtSvNnIj-ArsmKd3f7-GYf7P4IrAs5kmQ2hkN4RGj-KId5UZyz-v61uOASz6oWYmuDQhfd-9RTGuf__nGTKEBjhoZpWiF9GtMaLY0UPY52Asdy6fI77M5oCWQQgyLyc4lZh-Icv-rSUqUZMEg3YUVBS8769a1amR0"/>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Nylon Lanyards</h4>
+<div class="flex items-center justify-between">
+<span class="text-sm text-secondary font-medium">Starting at</span>
+<span class="text-lg font-black text-primary">$0.89</span>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="bg-surface-container-lowest rounded-lg p-6 group cursor-pointer hover:shadow-xl transition-all">
+<div class="aspect-square bg-surface-container rounded-lg mb-4 overflow-hidden">
+<img alt="Badge Reels" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern retractable badge reels with custom branding on a smooth metallic surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAVf_S9yrQ39VzPl1QLu19l9-jKYBW64qAnr1R21gfFGFFKATFSsdJz216DMt-R_l8jeSt3H03cKczA29J0bAJbeqs8xqbShXGSVzbCwqWmv0kbaYH5YrVmAFsrxYF6hpB-u3IAWkvuGN-B8YZ-PVEtHS0AQsaOZFH5ZQp7A3tHg4RpFPXoMEy76XGYsQ0NFubJEqNW6oEF08XrnYLTqq8SpuGwjP3beNUMGUNMTeejhkVaabmhFpQPku4gWfP4PX4bEX3Pl1BRUHR"/>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Retractable Reels</h4>
+<div class="flex items-center justify-between">
+<span class="text-sm text-secondary font-medium">Starting at</span>
+<span class="text-lg font-black text-primary">$1.49</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-slate-950 dark:bg-black w-full py-12 px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-bold text-white">SwagPrint</div>
+<p class="text-slate-400 font-['Inter'] text-sm leading-relaxed">The premier destination for high-end custom merchandise and corporate branding solutions.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-white cursor-pointer hover:opacity-70">language</span>
+<span class="material-symbols-outlined text-white cursor-pointer hover:opacity-70">share</span>
+<span class="material-symbols-outlined text-white cursor-pointer hover:opacity-70">contact_support</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="text-white text-xs font-black uppercase tracking-widest mb-6">Explore</div>
+<ul class="space-y-3">
+<li><a class="text-slate-500 font-['Inter'] text-sm uppercase tracking-widest hover:text-white transition-colors duration-300" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 font-['Inter'] text-sm uppercase tracking-widest hover:text-white transition-colors duration-300" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<div class="text-white text-xs font-black uppercase tracking-widest mb-6">Support</div>
+<ul class="space-y-3">
+<li><a class="text-slate-500 font-['Inter'] text-sm uppercase tracking-widest hover:text-white transition-colors duration-300" href="#">Contact Us</a></li>
+<li><a class="text-slate-500 font-['Inter'] text-sm uppercase tracking-widest hover:text-white transition-colors duration-300" href="#">Shipping &amp; Returns</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<div class="text-white text-xs font-black uppercase tracking-widest mb-6">Newsletter</div>
+<p class="text-slate-400 text-sm">Join for 10% off your first order.</p>
+<div class="relative">
+<input class="w-full bg-slate-900 border-none rounded-full px-6 py-3 text-white text-sm focus:ring-1 focus:ring-white" placeholder="Email address" type="email"/>
+<button class="absolute right-2 top-2 material-symbols-outlined text-white bg-slate-800 p-1 rounded-full">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-900 text-center">
+<p class="text-slate-500 font-['Inter'] text-xs uppercase tracking-widest">© 2024 SwagPrint. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

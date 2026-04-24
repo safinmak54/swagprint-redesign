@@ -1,0 +1,832 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#d4f0e5",
+                    "on-background": "#1a2a3a",
+                    "surface-variant": "#d6e2da",
+                    "surface-dim": "#d6ddd9",
+                    "surface-tint": "#3D5167",
+                    "on-secondary-container": "#3D5167",
+                    "secondary-fixed-dim": "#b0c4b8",
+                    "surface-container": "#e8eeeb",
+                    "inverse-surface": "#1a2a3a",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#8ECAB0",
+                    "secondary-container": "#d6e2da",
+                    "outline": "#6b7d74",
+                    "on-surface": "#1a2a3a",
+                    "surface-container-low": "#f0f4f2",
+                    "surface": "#f5f7f6",
+                    "primary-fixed-dim": "#6ba3d6",
+                    "inverse-on-surface": "#e8eeeb",
+                    "on-surface-variant": "#3D5167",
+                    "on-primary-fixed-variant": "#2a3d4f",
+                    "on-primary-container": "#8ECAB0",
+                    "primary-container": "#3D5167",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#3D5167",
+                    "on-tertiary-fixed": "#0a1628",
+                    "on-tertiary-container": "#8ECAB0",
+                    "background": "#f5f7f6",
+                    "on-primary-fixed": "#0a1628",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#5a7068",
+                    "tertiary-container": "#3D5167",
+                    "secondary-fixed": "#d6e2da",
+                    "tertiary": "#2a3d4f",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "primary": "#3D5167",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e0e8e4",
+                    "primary-fixed": "#d6e2da",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#d6e2da",
+                    "on-secondary-fixed": "#1a2a3a",
+                    "inverse-primary": "#8ECAB0",
+                    "on-tertiary-fixed-variant": "#2a3d4f",
+                    "surface-bright": "#f5f7f6",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c5d0ca"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-1 { font-variation-settings: 'FILL' 1; }
+
+        /* Glowing shadow input bar */
+        @property --hue { syntax: "<number>"; inherits: true; initial-value: 0; }
+        @property --rotate { syntax: "<number>"; inherits: true; initial-value: 0; }
+        @property --bg-y { syntax: "<number>"; inherits: true; initial-value: 0; }
+        @property --bg-x { syntax: "<number>"; inherits: true; initial-value: 0; }
+        @property --glow-translate-y { syntax: "<number>"; inherits: true; initial-value: 0; }
+        @property --bg-size { syntax: "<number>"; inherits: true; initial-value: 0; }
+        @property --glow-opacity { syntax: "<number>"; inherits: true; initial-value: 0; }
+        @property --glow-blur { syntax: "<number>"; inherits: true; initial-value: 0; }
+        @property --glow-scale { syntax: "<number>"; inherits: true; initial-value: 2; }
+        @property --glow-radius { syntax: "<number>"; inherits: true; initial-value: 2; }
+        @property --white-shadow { syntax: "<number>"; inherits: true; initial-value: 0; }
+
+        .glow-container {
+          --card-color: hsl(0deg 0% 100%);
+          --card-radius: 9999px;
+          --card-width: 100%;
+          --border-width: 2px;
+          --bg-size: 1;
+          --hue: 25;
+          --hue-speed: 1;
+          --rotate: 0;
+          --animation-speed: 4s;
+          --interaction-speed: 0.55s;
+          --glow-scale: 1.5;
+          --scale-factor: 1;
+          --glow-blur: 6;
+          --glow-opacity: 0.8;
+          --glow-radius: 100;
+          --glow-rotate-unit: 1deg;
+          width: 100%;
+          color: #1a1a2e;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          z-index: 2;
+          border-radius: var(--card-radius);
+          cursor: pointer;
+        }
+        .glow-container:before, .glow-container:after {
+          content: ""; display: block; position: absolute;
+          width: 100%; height: 100%; border-radius: var(--card-radius);
+        }
+        .glow-content {
+          position: relative;
+          background: var(--card-color);
+          border-radius: var(--card-radius);
+          display: flex; align-items: center; justify-content: center;
+          width: 100%; padding: 0;
+        }
+        .glow-content:before {
+          content: ""; display: block; position: absolute;
+          width: calc(100% + var(--border-width)); height: calc(100% + var(--border-width));
+          border-radius: var(--card-radius);
+          box-shadow: 0 0 20px rgba(0,0,0,0.1);
+          mix-blend-mode: color-burn; z-index: -1;
+          background: hsl(0deg 0% 92%) radial-gradient(
+            30% 50% at calc(var(--bg-x) * 1%) calc(var(--bg-y) * 1%),
+            hsl(calc(var(--hue) * var(--hue-speed) * 1deg) 100% 70%) calc(0% * var(--bg-size)),
+            hsl(calc(var(--hue) * var(--hue-speed) * 1deg) 90% 60%) calc(20% * var(--bg-size)),
+            hsl(calc(var(--hue) * var(--hue-speed) * 1deg) 80% 50%) calc(40% * var(--bg-size)),
+            transparent 100%
+          );
+          animation: hue-animation var(--animation-speed) linear infinite,
+                     rotate-bg var(--animation-speed) linear infinite;
+          transition: --bg-size var(--interaction-speed) ease;
+        }
+        .glow-orb {
+          display: block; position: absolute;
+          width: 80px; height: 80px;
+          animation: glow-rotate var(--animation-speed) linear infinite;
+          transform: rotateZ(calc(var(--rotate) * var(--glow-rotate-unit)));
+          transform-origin: center;
+          border-radius: calc(var(--glow-radius) * 10vw);
+        }
+        .glow-orb:after {
+          content: ""; display: block; z-index: -2;
+          filter: blur(calc(var(--glow-blur) * 10px));
+          width: 130%; height: 130%; left: -15%; top: -15%;
+          background: hsl(calc(var(--hue) * var(--hue-speed) * 1deg) 100% 55%);
+          position: relative;
+          border-radius: calc(var(--glow-radius) * 10vw);
+          animation: hue-animation var(--animation-speed) linear infinite;
+          transform: scaleY(calc(var(--glow-scale) * var(--scale-factor) / 1.1))
+                     scaleX(calc(var(--glow-scale) * var(--scale-factor) * 1.2))
+                     translateY(calc(var(--glow-translate-y) * 1%));
+          opacity: var(--glow-opacity);
+        }
+        .glow-container:hover .glow-content {
+          box-shadow: 0 0 calc(var(--white-shadow) * 1vw) calc(var(--white-shadow) * 0.15vw) rgb(255 165 0 / 10%);
+          animation: shadow-pulse calc(var(--animation-speed) * 2) linear infinite;
+        }
+        .glow-container:hover .glow-content:before {
+          --bg-size: 15;
+          animation-play-state: paused;
+          transition: --bg-size var(--interaction-speed) ease;
+        }
+        .glow-container:hover .glow-orb {
+          --glow-blur: 1.5; --glow-opacity: 0.5; --glow-scale: 2.5;
+          --glow-radius: 0; --rotate: 900; --glow-rotate-unit: 0; --scale-factor: 1.25;
+          animation-play-state: paused;
+        }
+        .glow-container:hover .glow-orb:after {
+          --glow-translate-y: 0;
+          animation-play-state: paused;
+          transition: --glow-translate-y 0s ease, --glow-blur 0.05s ease,
+                      --glow-opacity 0.05s ease, --glow-scale 0.05s ease,
+                      --glow-radius 0.05s ease;
+        }
+        .glow-container:focus-within .glow-content:before { --bg-size: 15; }
+        .glow-container:focus-within .glow-orb {
+          --glow-blur: 2; --glow-opacity: 0.6; --glow-scale: 2;
+        }
+        @keyframes shadow-pulse {
+          0%, 24%, 46%, 73%, 96% { --white-shadow: 0.3; }
+          12%, 28%, 41%, 63%, 75%, 82%, 98% { --white-shadow: 1.5; }
+          6%, 32%, 57% { --white-shadow: 0.8; }
+          18%, 52%, 88% { --white-shadow: 2; }
+        }
+        @keyframes rotate-bg {
+          0% { --bg-x: 0; --bg-y: 0; }
+          25% { --bg-x: 100; --bg-y: 0; }
+          50% { --bg-x: 100; --bg-y: 100; }
+          75% { --bg-x: 0; --bg-y: 100; }
+          100% { --bg-x: 0; --bg-y: 0; }
+        }
+        @keyframes glow-rotate {
+          from { --rotate: -70; --glow-translate-y: -65; }
+          to { --rotate: calc(360 - 70); --glow-translate-y: -65; }
+        }
+        @keyframes hue-animation {
+          0% { --hue: 15; }
+          50% { --hue: 35; }
+          100% { --hue: 15; }
+        }
+        @keyframes border-shimmer {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 200% 50%; }
+        }
+        .shadow-ambient-sm { box-shadow: 0 8px 30px rgba(11, 29, 45, 0.04); }
+        .shadow-ambient { box-shadow: 0 20px 50px rgba(11, 29, 45, 0.05); }
+        .shadow-ambient-lg { box-shadow: 0 30px 60px rgba(11, 29, 45, 0.06); }
+        .btn-primary { transition: background 0.3s ease, transform 0.2s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #2a3d4f, #3D5167) !important; opacity: 1 !important; transform: translateY(-1px); }
+        .input-ghost { transition: all 0.2s ease; }
+        .input-ghost:focus { background-color: #ffffff !important; box-shadow: 0 0 0 1px rgba(16, 50, 207, 0.3) !important; border-color: transparent !important; }
+        @keyframes scroll-up {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .logo-scroll-track { display: flex; width: max-content; animation: scroll-left 25s linear infinite; }
+        .logo-scroll-track:hover { animation-play-state: paused; }
+        .brand-grid img { transition: filter 0.4s ease, opacity 0.4s ease; }
+        .brand-grid img:hover { filter: grayscale(0); opacity: 1; }
+        .nav-menu { position: relative; }
+        .nav-cursor { position: absolute; bottom: 0; height: 2px; background: #1032cf; border-radius: 1px; transition: left 0.25s ease, width 0.25s ease, opacity 0.2s ease; opacity: 0; pointer-events: none; }
+        .nav-menu:hover .nav-cursor { opacity: 1; }
+        .nav-item { position: relative; transition: color 0.2s ease, background-color 0.2s ease; }
+        .nav-item:hover { background-color: rgba(16, 50, 207, 0.06); }
+        .testimonial-col { overflow: hidden; max-height: 520px; mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); }
+        .testimonial-scroll { animation: scroll-up var(--scroll-duration, 20s) linear infinite; }
+        .testimonial-scroll:hover { animation-play-state: paused; }
+
+        /* Scroll-triggered animations */
+        .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-up.delay-1 { transition-delay: 0.1s; }
+        .fade-up.delay-2 { transition-delay: 0.2s; }
+        .fade-up.delay-3 { transition-delay: 0.3s; }
+        .fade-up.delay-4 { transition-delay: 0.4s; }
+        .fade-up.delay-5 { transition-delay: 0.5s; }
+        .fade-up.delay-6 { transition-delay: 0.6s; }
+        .fade-up.delay-7 { transition-delay: 0.7s; }
+
+        .slide-in-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.9s ease, transform 0.9s ease; }
+        .slide-in-left.visible { opacity: 1; transform: translateX(0); }
+
+        .slide-in-right { opacity: 0; transform: translateX(60px); transition: opacity 0.9s ease, transform 0.9s ease; }
+        .slide-in-right.visible { opacity: 1; transform: translateX(0); }
+
+        /* Hero entrance */
+        .hero-fade { opacity: 0; transform: translateY(30px); animation: heroEntrance 1s ease forwards; }
+        .hero-fade.d1 { animation-delay: 0.2s; }
+        .hero-fade.d2 { animation-delay: 0.4s; }
+        .hero-fade.d3 { animation-delay: 0.6s; }
+        .hero-fade.d4 { animation-delay: 0.8s; }
+        @keyframes heroEntrance {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero rotating word */
+        #hero-rotating-word { display: inline-block; position: relative; clip-path: inset(-10% -5% -20% -5%); }
+        .hero-word-current, .hero-word-next {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hero-word-exit-up { transform: translateY(-110%); opacity: 0; }
+        .hero-word-enter-below { transform: translateY(110%); opacity: 0; }
+        .hero-word-enter-active { transform: translateY(0); opacity: 1; }
+
+        /* Trust bar stagger */
+        .trust-item { opacity: 0; transform: translateX(-20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .trust-item.visible { opacity: 1; transform: translateX(0); }
+        .trust-item.t1 { transition-delay: 0.1s; }
+        .trust-item.t2 { transition-delay: 0.3s; }
+        .trust-item.t3 { transition-delay: 0.5s; }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    </style>
+<body class="font-body text-on-surface bg-background">
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md">
+<!-- Top utility bar -->
+<div class="bg-surface-container-low px-8 py-1.5 text-[10px] font-bold tracking-wider text-secondary flex justify-between items-center">
+<div>Free Shipping on All Orders</div>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Us: 1.800.346.7890</a>
+<a class="hover:text-primary transition-colors" href="#">Track Order</a>
+</div>
+</div>
+<!-- Main nav -->
+<nav class="flex items-center px-8 py-3">
+<a href="#"><img src="logos/SwagPrint-Horizontal-Logo-RGB-Dark.png" alt="SwagPrint" class="h-7 w-auto object-contain"></a>
+<div class="hidden lg:flex items-center gap-0 ml-6">
+<!-- Apparel -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Custom Apparel <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">checkroom</span> T-Shirts</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">dry_cleaning</span> Polos</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">apparel</span> Hoodies &amp; Sweatshirts</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">styler</span> Jackets</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">headphones</span> Hats &amp; Caps</a>
+</div>
+</div>
+</div>
+<!-- Promotional -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Promotional Products <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">edit</span> Pens &amp; Writing</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">local_drink</span> Drinkware</a>
+<a href="category.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">local_cafe</span> Can Coolers</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">shopping_bag</span> Bags &amp; Totes</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">sticky_note_2</span> Stickers &amp; Labels</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">devices</span> Tech Accessories</a>
+</div>
+</div>
+</div>
+<!-- Corporate Gifts -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Corporate Gifts <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">inventory_2</span> Gift Boxes</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">waving_hand</span> Welcome Kits</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">workspace_premium</span> Executive Gifts</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">holiday_village</span> Holiday Gifts</a>
+</div>
+</div>
+</div>
+<!-- Custom Swag -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Marketing Material <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">print</span> Brochures &amp; Flyers</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">flag</span> Banners &amp; Signs</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">contact_mail</span> Business Cards</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">folder_open</span> Folders &amp; Inserts</a>
+</div>
+</div>
+</div>
+<!-- Groups & Events -->
+<div class="nav-dropdown relative group">
+<a class="text-sm font-medium text-secondary hover:text-on-surface px-4 py-2 rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1 cursor-pointer" href="#">Groups &amp; Events <span class="material-symbols-outlined text-[14px] opacity-50 group-hover:rotate-180 transition-transform">expand_more</span></a>
+<div class="nav-dropdown-menu hidden group-hover:block absolute top-full left-0 pt-2 z-50">
+<div class="bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/20 p-4 w-56">
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">groups</span> Team Stores</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">celebration</span> Events &amp; Conferences</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">school</span> Schools &amp; Clubs</a>
+<a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-secondary hover:bg-surface-container-low hover:text-on-surface transition-all"><span class="material-symbols-outlined text-lg text-primary">volunteer_activism</span> Nonprofits</a>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 ml-auto">
+<!-- Search icon + expandable search -->
+<div class="relative" id="search-wrapper">
+<button id="search-toggle" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-xl">search</span>
+</button>
+<div id="search-overlay" class="hidden absolute right-0 top-full mt-2 w-80 bg-white rounded-2xl shadow-ambient-lg border border-surface-variant/30 p-3 z-50">
+<div class="flex items-center gap-2 bg-surface-container-lowest rounded-xl px-4 py-2.5 border border-surface-variant/20">
+<span class="material-symbols-outlined text-lg text-outline">search</span>
+<input id="search-input" class="bg-transparent border-none focus:outline-none text-sm w-full placeholder:text-outline-variant" placeholder="Search products, brands..." type="text">
+</div>
+<div class="mt-2 px-2">
+<p class="text-[10px] text-secondary font-medium uppercase tracking-wider mb-2">Popular</p>
+<div class="flex flex-wrap gap-1.5">
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Custom Tees</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Tote Bags</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Water Bottles</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Pens</a>
+<a href="#" class="text-xs bg-surface-container-low text-secondary px-3 py-1 rounded-full hover:bg-primary hover:text-white transition-all">Caps</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Cart -->
+<button class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all relative">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary text-white text-[9px] font-bold rounded-full flex items-center justify-center">0</span>
+</button>
+<!-- Account -->
+<button class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-xl">account_circle</span>
+</button>
+<!-- Mobile menu toggle -->
+<button id="mobile-menu-toggle" class="lg:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low text-secondary hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-xl">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Breadcrumb -->
+<nav class="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-16 mt-24 mb-4">
+<div class="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-widest text-secondary">
+<a href="#" class="hover:text-primary transition-colors">Home</a>
+<span>/</span>
+<a href="#" class="hover:text-primary transition-colors">Lanyards</a>
+<span>/</span>
+<span class="text-on-surface">Custom Lanyards</span>
+</div>
+</nav>
+<!-- Product Hero -->
+<section class="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-16 mb-16 flex flex-col lg:flex-row gap-12">
+<!-- Left: Gallery (sticky on scroll) -->
+<div class="lg:w-[45%] lg:sticky lg:top-[80px] lg:self-start">
+<div class="overflow-hidden rounded-2xl aspect-square flex items-center justify-center mb-3">
+<img alt="Custom Sublimation Lanyard" class="w-full h-full object-contain rounded-2xl" src="Product Images/63f334e5-1d1a-40df-9e39-75a1df0bf2d0-2026-04-16.png"/>
+</div>
+<div class="grid grid-cols-4 gap-2 max-w-xs">
+<div class="bg-surface-container-low rounded-2xl overflow-hidden aspect-square cursor-pointer ring-2 ring-primary/30">
+<img alt="Lanyard front view" class="w-full h-full object-cover rounded-2xl" src="Product Images/63f334e5-1d1a-40df-9e39-75a1df0bf2d0-2026-04-16.png"/>
+</div>
+<div class="bg-surface-container-low rounded-2xl overflow-hidden aspect-square cursor-pointer hover:opacity-80 transition">
+<img alt="Lanyard detail" class="w-full h-full object-cover rounded-2xl" src="Product Images/1ec3edeb-0008-4e1d-9d48-0224d8473da8-2026-04-16.png"/>
+</div>
+<div class="bg-surface-container-low rounded-2xl overflow-hidden aspect-square cursor-pointer hover:opacity-80 transition">
+<img alt="Lanyard colors" class="w-full h-full object-cover rounded-2xl" src="Product Images/cfc16970-5415-411a-a0cb-617e0d405d1a-2026-04-16.jpeg"/>
+</div>
+<div class="bg-surface-container-low rounded-2xl overflow-hidden aspect-square cursor-pointer hover:opacity-80 transition">
+<img alt="Lanyard attachments" class="w-full h-full object-cover rounded-2xl" src="Product Images/ea5ce42b-c95c-443d-b7a7-83c9efff22a0-2026-04-16.jpeg"/>
+</div>
+</div>
+</div>
+<!-- Right: Product Info -->
+<div class="lg:w-[55%]">
+<h1 class="font-headline text-4xl font-extrabold tracking-tighter text-on-surface mb-3 leading-tight">Custom Lanyards</h1>
+<div class="flex items-center gap-2 mb-3">
+<div class="flex text-[#FFB300]">
+<span class="material-symbols-outlined fill-1 text-[18px]">star</span>
+<span class="material-symbols-outlined fill-1 text-[18px]">star</span>
+<span class="material-symbols-outlined fill-1 text-[18px]">star</span>
+<span class="material-symbols-outlined fill-1 text-[18px]">star</span>
+<span class="material-symbols-outlined fill-1 text-[18px]">star</span>
+</div>
+<span class="text-sm font-medium text-secondary">(5,900+ reviews)</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-6">Premium custom lanyards for events, conferences, and everyday use. Design yours in minutes.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container-low text-secondary text-[11px] font-bold uppercase tracking-wider rounded-full">
+<span class="material-symbols-outlined text-[14px] text-[#8ECAB0]">check_circle</span> Free Shipping
+</span>
+<span class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container-low text-secondary text-[11px] font-bold uppercase tracking-wider rounded-full">
+<span class="material-symbols-outlined text-[14px] text-[#8ECAB0]">check_circle</span> Free Setup
+</span>
+<span class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container-low text-secondary text-[11px] font-bold uppercase tracking-wider rounded-full">
+<span class="material-symbols-outlined text-[14px] text-[#8ECAB0]">check_circle</span> No Minimums
+</span>
+</div>
+
+<!-- Style Selector -->
+<div class="mb-6">
+<label class="block text-[10px] font-black uppercase tracking-[0.2em] text-secondary mb-3">Choose Your Style</label>
+<div class="grid grid-cols-4 gap-2">
+<button class="text-left p-2 rounded-lg bg-surface-container-lowest ring-2 ring-[#3D5167] transition-all">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden mb-1.5"><img alt="Sublimation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ0uLE8IUdpVSHm9IVGrfaowB1q5k21MMYGH1Zt6oTTNF5TqW4YjCO1bJSUOdPEQ_pjWyIlwE4nrCWDUv6nsAUtiW50Y10EeGwOPzXkwmcRcGyjOwBnIX_xm5sFC1XhhJTPsXmr-_D08IxFw13QRep3bHgeSOw22GPZNpkJ2mBo2clpOvbbyDvrpxJcIUD3YlsmgfvCxaSd4W6GXiCs8_o-JEwP1r47w6m6BwbZ0PyopUot1BS5eUAYnKTx6Wn3vCII6y1Z_iV4WsO"/></div>
+<div class="font-bold text-[11px] text-on-surface pl-1">Sublimation</div>
+<div class="text-[10px] text-secondary pl-1">$0.99/ea</div>
+</button>
+<button class="text-left p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden mb-1.5"><img alt="Polyester" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXatpoZApDv7c32tPv_an-vhqW27fhaeK0rDUWafMKjEhy769Z6WrSPBETWg1GikL1eIrW7_2997FOj8x3GV7O43jbJt8Bfj2p-9TwJQPznusD3vMfofPPM-RtvVWE_CeAZgU4dFc0zADat3lYZJb1YU68r2DRtxmKpmEvaxHjbw3AwLYEwJN3zGMNsJ2L9DYuR0QFJeC6qKLHjvGpQIxZizywAcL-jqqc_McghPuCSDSFhrM4O2Hh0NvUlPalwe6XpCZUov_Cm5Ce"/></div>
+<div class="font-bold text-[11px] text-on-surface pl-1">Polyester</div>
+<div class="text-[10px] text-secondary pl-1">$0.79/ea</div>
+</button>
+<button class="text-left p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden mb-1.5"><img alt="Woven" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRzlDSKIpvCrTyojXhWpfQu5VHLK64TAAjK8jqt8Vw5EdfalHYj097gHL1ZtBugEVXbhrRnnaDosiVWUiS8o_iSe3aXUo8D9GhamNrTqjO8s-LTa8pyp7T2ZgCG1VSinWhIMC_bdjj4KSCLDIPHSgFFoROQDNG3Puk3hbwAf5SRCrN9mMr3iPw1VwSwOgNxElFzK0TIl5bp_YHbTCku8Hl5qlob6qKHeiefcXqPxoGmvio2rTaomeh8_uNcxXj2Ow7IeBvm3kfJOTI"/></div>
+<div class="font-bold text-[11px] text-on-surface pl-1">Woven</div>
+<div class="text-[10px] text-secondary pl-1">$1.29/ea</div>
+</button>
+<button class="text-left p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden mb-1.5"><img alt="Nylon" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH3mWn5C14BFuJAe8cCDwNNrwY6I57sw-vJVuU7BLLFQBMYsmxP4INwS9ik9jv46e5JryT2lC2423Z49jcZIJnszqJMoxW4EblImMBErKZKaQwtSvNnIj-ArsmKd3f7-GYf7P4IrAs5kmQ2hkN4RGj-KId5UZyz-v61uOASz6oWYmuDQhfd-9RTGuf__nGTKEBjhoZpWiF9GtMaLY0UPY52Asdy6fI77M5oCWQQgyLyc4lZh-Icv-rSUqUZMEg3YUVBS8769a1amR0"/></div>
+<div class="font-bold text-[11px] text-on-surface pl-1">Nylon</div>
+<div class="text-[10px] text-secondary pl-1">$0.89/ea</div>
+</button>
+<button class="text-left p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden mb-1.5"><img alt="Tubular" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRzlDSKIpvCrTyojXhWpfQu5VHLK64TAAjK8jqt8Vw5EdfalHYj097gHL1ZtBugEVXbhrRnnaDosiVWUiS8o_iSe3aXUo8D9GhamNrTqjO8s-LTa8pyp7T2ZgCG1VSinWhIMC_bdjj4KSCLDIPHSgFFoROQDNG3Puk3hbwAf5SRCrN9mMr3iPw1VwSwOgNxElFzK0TIl5bp_YHbTCku8Hl5qlob6qKHeiefcXqPxoGmvio2rTaomeh8_uNcxXj2Ow7IeBvm3kfJOTI"/></div>
+<div class="font-bold text-[11px] text-on-surface pl-1">Tubular</div>
+<div class="text-[10px] text-secondary pl-1">$0.69/ea</div>
+</button>
+<button class="text-left p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden mb-1.5"><img alt="Flat Braid" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH3mWn5C14BFuJAe8cCDwNNrwY6I57sw-vJVuU7BLLFQBMYsmxP4INwS9ik9jv46e5JryT2lC2423Z49jcZIJnszqJMoxW4EblImMBErKZKaQwtSvNnIj-ArsmKd3f7-GYf7P4IrAs5kmQ2hkN4RGj-KId5UZyz-v61uOASz6oWYmuDQhfd-9RTGuf__nGTKEBjhoZpWiF9GtMaLY0UPY52Asdy6fI77M5oCWQQgyLyc4lZh-Icv-rSUqUZMEg3YUVBS8769a1amR0"/></div>
+<div class="font-bold text-[11px] text-on-surface pl-1">Flat Braid</div>
+<div class="text-[10px] text-secondary pl-1">$1.09/ea</div>
+</button>
+<button class="text-left p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden mb-1.5"><img alt="Bamboo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXatpoZApDv7c32tPv_an-vhqW27fhaeK0rDUWafMKjEhy769Z6WrSPBETWg1GikL1eIrW7_2997FOj8x3GV7O43jbJt8Bfj2p-9TwJQPznusD3vMfofPPM-RtvVWE_CeAZgU4dFc0zADat3lYZJb1YU68r2DRtxmKpmEvaxHjbw3AwLYEwJN3zGMNsJ2L9DYuR0QFJeC6qKLHjvGpQIxZizywAcL-jqqc_McghPuCSDSFhrM4O2Hh0NvUlPalwe6XpCZUov_Cm5Ce"/></div>
+<div class="font-bold text-[11px] text-on-surface pl-1">Bamboo</div>
+<div class="text-[10px] text-secondary pl-1">$1.49/ea</div>
+</button>
+<button class="text-left p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden mb-1.5"><img alt="Recycled PET" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ0uLE8IUdpVSHm9IVGrfaowB1q5k21MMYGH1Zt6oTTNF5TqW4YjCO1bJSUOdPEQ_pjWyIlwE4nrCWDUv6nsAUtiW50Y10EeGwOPzXkwmcRcGyjOwBnIX_xm5sFC1XhhJTPsXmr-_D08IxFw13QRep3bHgeSOw22GPZNpkJ2mBo2clpOvbbyDvrpxJcIUD3YlsmgfvCxaSd4W6GXiCs8_o-JEwP1r47w6m6BwbZ0PyopUot1BS5eUAYnKTx6Wn3vCII6y1Z_iV4WsO"/></div>
+<div class="font-bold text-[11px] text-on-surface pl-1">Recycled PET</div>
+<div class="text-[10px] text-secondary pl-1">$1.19/ea</div>
+</button>
+</div>
+</div>
+
+<!-- Lanyard Width -->
+<div class="mb-6">
+<label class="block text-[10px] font-black uppercase tracking-[0.2em] text-secondary mb-3">Lanyard Width</label>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-container text-on-surface text-sm font-semibold rounded-full hover:bg-surface-variant transition-colors">3/8 inch</button>
+<button class="px-4 py-2 bg-primary text-on-primary text-sm font-semibold rounded-full">3/4 inch</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface text-sm font-semibold rounded-full hover:bg-surface-variant transition-colors">1 inch</button>
+</div>
+</div>
+
+<!-- Start Designing CTA -->
+<div class="mb-4">
+<button class="btn-primary w-full py-4 bg-primary text-white text-lg font-bold rounded-full flex items-center justify-center gap-3 transition-all duration-300">
+Start Designing
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<p class="text-[11px] text-center text-on-surface-variant font-medium tracking-wide mb-8">
+Free digital proof · 7-10 day turnaround · Bulk discounts available
+</p>
+
+</div>
+</section>
+<!-- Details Section -->
+<section class="py-16 px-4 md:px-8 lg:px-16">
+<div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12">
+<!-- Left Column (60%) -->
+<div class="lg:w-[60%]">
+<!-- Use Cases -->
+<div class="mb-10">
+<h3 class="font-headline text-xl font-bold tracking-tight text-on-surface mb-4">Use Cases</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex items-center gap-3 bg-surface-container-low rounded-lg p-3">
+<span class="material-symbols-outlined text-primary text-xl">corporate_fare</span>
+<div><div class="font-semibold text-sm text-on-surface">Corporate Events</div><div class="text-[11px] text-secondary">Conferences, meetings, retreats</div></div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low rounded-lg p-3">
+<span class="material-symbols-outlined text-primary text-xl">school</span>
+<div><div class="font-semibold text-sm text-on-surface">Schools & Universities</div><div class="text-[11px] text-secondary">Staff IDs, campus events</div></div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low rounded-lg p-3">
+<span class="material-symbols-outlined text-primary text-xl">local_hospital</span>
+<div><div class="font-semibold text-sm text-on-surface">Healthcare</div><div class="text-[11px] text-secondary">Staff badges, visitor passes</div></div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low rounded-lg p-3">
+<span class="material-symbols-outlined text-primary text-xl">festival</span>
+<div><div class="font-semibold text-sm text-on-surface">Festivals & Concerts</div><div class="text-[11px] text-secondary">VIP access, crew identification</div></div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low rounded-lg p-3">
+<span class="material-symbols-outlined text-primary text-xl">storefront</span>
+<div><div class="font-semibold text-sm text-on-surface">Trade Shows</div><div class="text-[11px] text-secondary">Exhibitor & attendee badges</div></div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low rounded-lg p-3">
+<span class="material-symbols-outlined text-primary text-xl">fitness_center</span>
+<div><div class="font-semibold text-sm text-on-surface">Gyms & Fitness</div><div class="text-[11px] text-secondary">Member keycards, staff IDs</div></div>
+</div>
+</div>
+</div>
+
+<!-- Product Details -->
+<div class="mb-10">
+<h3 class="font-headline text-xl font-bold tracking-tight text-on-surface mb-4">Product Details</h3>
+<ul class="grid grid-cols-2 gap-x-8 gap-y-2 text-sm text-on-surface-variant">
+<li class="flex items-start gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-on-surface-variant shrink-0"></span>4.3 oz. premium polyester</li>
+<li class="flex items-start gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-on-surface-variant shrink-0"></span>Full-color dye sublimation printing</li>
+<li class="flex items-start gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-on-surface-variant shrink-0"></span>Safety breakaway clasp included</li>
+<li class="flex items-start gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-on-surface-variant shrink-0"></span>Multiple attachment options</li>
+<li class="flex items-start gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-on-surface-variant shrink-0"></span>Standard 36" length</li>
+<li class="flex items-start gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-on-surface-variant shrink-0"></span>Widths: 3/8", 3/4", 1"</li>
+<li class="flex items-start gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-on-surface-variant shrink-0"></span>Select colors up to full color</li>
+<li class="flex items-start gap-2"><span class="mt-1.5 w-1 h-1 rounded-full bg-on-surface-variant shrink-0"></span>Machine washable</li>
+</ul>
+</div>
+
+<!-- Brand Block -->
+<div class="bg-surface-container-low rounded-lg p-6">
+<div class="flex items-center gap-3 mb-3">
+<img src="logos/SwagPrint-Horizontal-Logo-RGB-Dark.png" alt="SwagPrint" class="h-6 w-auto object-contain">
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4">SwagPrint is a leading producer of premium custom branded merchandise. Designed for decoration and retail, we offer a wide range of responsibly crafted products including lanyards, wristbands, and badge accessories.</p>
+<div class="flex flex-wrap gap-2">
+<a href="#" class="px-4 py-1.5 rounded-full text-[11px] font-semibold text-primary bg-surface-container-lowest hover:bg-surface-container transition-colors">All Lanyards</a>
+<a href="#" class="px-4 py-1.5 rounded-full text-[11px] font-semibold text-primary bg-surface-container-lowest hover:bg-surface-container transition-colors">Wristbands</a>
+<a href="#" class="px-4 py-1.5 rounded-full text-[11px] font-semibold text-primary bg-surface-container-lowest hover:bg-surface-container transition-colors">Badge Reels</a>
+</div>
+</div>
+</div>
+
+<!-- Right Column (40%) — Pricing Calculator -->
+<div class="lg:w-[40%]">
+<div class="bg-surface-container-low rounded-lg p-6 lg:sticky lg:top-[80px]">
+<h3 class="font-headline text-lg font-bold tracking-tight text-on-surface mb-5">Pricing</h3>
+
+<!-- Price Display -->
+<div class="text-center mb-5">
+<div class="text-[10px] font-semibold uppercase tracking-wider text-secondary mb-2">Starting at</div>
+<div class="flex items-baseline justify-center gap-2">
+<span class="font-headline text-4xl font-extrabold text-on-surface">$0.99</span>
+<span class="text-sm text-secondary">/ea</span>
+</div>
+<span class="inline-block bg-[#8ECAB0] text-[#0a1628] text-[10px] font-bold px-3 py-1 rounded-full mt-2">Up to 56% bulk discount</span>
+</div>
+
+<!-- Quantity Tiers -->
+<div class="bg-surface-container-lowest rounded-lg p-4 mb-5">
+<div class="text-[10px] font-semibold uppercase tracking-wider text-secondary mb-3">Volume Pricing</div>
+<div class="flex flex-col gap-2 text-sm">
+<div class="flex justify-between"><span class="text-on-surface-variant">25 – 49</span><span class="text-on-surface font-semibold">$1.89/ea</span></div>
+<div class="flex justify-between"><span class="text-on-surface-variant">50 – 99</span><span class="text-on-surface font-semibold">$1.59/ea</span></div>
+<div class="flex justify-between"><span class="text-on-surface-variant">100 – 249</span><span class="text-on-surface font-semibold">$1.29/ea</span></div>
+<div class="flex justify-between"><span class="text-on-surface-variant">250 – 499</span><span class="text-on-surface font-semibold">$1.09/ea</span></div>
+<div class="flex justify-between bg-[#d4f0e5] rounded px-2 py-1"><span class="text-on-surface font-medium">500+</span><span class="text-on-surface font-bold">$0.99/ea</span></div>
+</div>
+</div>
+
+<!-- Includes -->
+<ul class="flex flex-col gap-2 mb-5">
+<li class="flex items-center gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-[#8ECAB0]">check_circle</span>Free shipping</li>
+<li class="flex items-center gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-[#8ECAB0]">check_circle</span>Free digital proof</li>
+<li class="flex items-center gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-[#8ECAB0]">check_circle</span>No setup fees</li>
+<li class="flex items-center gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-[#8ECAB0]">check_circle</span>7-10 day turnaround</li>
+</ul>
+
+<!-- Questions -->
+<div class="text-center text-xs text-secondary">
+Questions? <a href="tel:18003467890" class="text-primary font-semibold hover:underline">1.800.346.7890</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="py-12 px-4 md:px-8 lg:px-16">
+<div class="max-w-[1400px] mx-auto">
+<div class="flex items-center gap-4 mb-8">
+<h2 class="font-headline text-2xl font-extrabold tracking-tighter">What Customers Say</h2>
+<div class="flex items-center gap-2">
+<span class="font-headline font-black text-primary text-xl">4.9</span>
+<div class="flex text-[#FFB300]">
+<span class="material-symbols-outlined fill-1 text-base">star</span>
+<span class="material-symbols-outlined fill-1 text-base">star</span>
+<span class="material-symbols-outlined fill-1 text-base">star</span>
+<span class="material-symbols-outlined fill-1 text-base">star</span>
+<span class="material-symbols-outlined fill-1 text-base">star</span>
+</div>
+<span class="text-xs text-secondary font-medium">(5,900+ reviews)</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-5 rounded-[2rem] shadow-ambient-sm">
+<div class="flex text-[#FFB300] mb-2"><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span></div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-3 line-clamp-2">"The color reproduction is absolutely stunning. We ordered 1000 for our tech conference and every single one was perfect."</p>
+<h5 class="font-bold text-sm">Sarah R.</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Event Coordinator</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-[2rem] shadow-ambient-sm">
+<div class="flex text-[#FFB300] mb-2"><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span></div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-3 line-clamp-2">"Fast turnaround and excellent design support. They helped me clean up my logo so it would pop on the lanyards."</p>
+<h5 class="font-bold text-sm">Mark K.</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">Marketing Director</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-[2rem] shadow-ambient-sm">
+<div class="flex text-[#FFB300] mb-2"><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span><span class="material-symbols-outlined fill-1 text-sm">star</span></div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-3 line-clamp-2">"Durable and comfortable. We use these for our staff security badges and they've held up through daily wear."</p>
+<h5 class="font-bold text-sm">James L.</h5>
+<p class="text-[10px] text-secondary font-semibold uppercase tracking-wider">HR Manager</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Products -->
+<section class="py-16 px-4 md:px-8 lg:px-16">
+<div class="max-w-[1400px] mx-auto">
+<h2 class="font-headline text-2xl lg:text-3xl font-extrabold tracking-tighter mb-10">You May Also Like</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<a href="#" class="group block">
+<div class="aspect-[4/5] bg-[#f5f5f7] rounded-[2rem] overflow-hidden mb-6 relative">
+<img alt="Polyester Lanyards" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXatpoZApDv7c32tPv_an-vhqW27fhaeK0rDUWafMKjEhy769Z6WrSPBETWg1GikL1eIrW7_2997FOj8x3GV7O43jbJt8Bfj2p-9TwJQPznusD3vMfofPPM-RtvVWE_CeAZgU4dFc0zADat3lYZJb1YU68r2DRtxmKpmEvaxHjbw3AwLYEwJN3zGMNsJ2L9DYuR0QFJeC6qKLHjvGpQIxZizywAcL-jqqc_McghPuCSDSFhrM4O2Hh0NvUlPalwe6XpCZUov_Cm5Ce"/>
+<div class="absolute bottom-4 inset-x-4 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="bg-primary text-white rounded-full py-2 px-6 text-sm font-bold">Customize Now</span>
+</div>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Polyester Lanyards</h4>
+<p class="text-[11px] text-secondary mb-2 uppercase font-semibold">24 Colors Available</p>
+<p class="text-primary font-bold">From $0.79 <span class="text-secondary text-xs font-normal">/ea</span></p>
+</a>
+<a href="#" class="group block">
+<div class="aspect-[4/5] bg-[#f5f5f7] rounded-[2rem] overflow-hidden mb-6 relative">
+<img alt="Woven Lanyards" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRzlDSKIpvCrTyojXhWpfQu5VHLK64TAAjK8jqt8Vw5EdfalHYj097gHL1ZtBugEVXbhrRnnaDosiVWUiS8o_iSe3aXUo8D9GhamNrTqjO8s-LTa8pyp7T2ZgCG1VSinWhIMC_bdjj4KSCLDIPHSgFFoROQDNG3Puk3hbwAf5SRCrN9mMr3iPw1VwSwOgNxElFzK0TIl5bp_YHbTCku8Hl5qlob6qKHeiefcXqPxoGmvio2rTaomeh8_uNcxXj2Ow7IeBvm3kfJOTI"/>
+<div class="absolute bottom-4 inset-x-4 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="bg-primary text-white rounded-full py-2 px-6 text-sm font-bold">Customize Now</span>
+</div>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Woven Lanyards</h4>
+<p class="text-[11px] text-secondary mb-2 uppercase font-semibold">12 Colors Available</p>
+<p class="text-primary font-bold">From $1.29 <span class="text-secondary text-xs font-normal">/ea</span></p>
+</a>
+<a href="#" class="group block">
+<div class="aspect-[4/5] bg-[#f5f5f7] rounded-[2rem] overflow-hidden mb-6 relative">
+<img alt="Nylon Lanyards" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH3mWn5C14BFuJAe8cCDwNNrwY6I57sw-vJVuU7BLLFQBMYsmxP4INwS9ik9jv46e5JryT2lC2423Z49jcZIJnszqJMoxW4EblImMBErKZKaQwtSvNnIj-ArsmKd3f7-GYf7P4IrAs5kmQ2hkN4RGj-KId5UZyz-v61uOASz6oWYmuDQhfd-9RTGuf__nGTKEBjhoZpWiF9GtMaLY0UPY52Asdy6fI77M5oCWQQgyLyc4lZh-Icv-rSUqUZMEg3YUVBS8769a1amR0"/>
+<div class="absolute bottom-4 inset-x-4 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="bg-primary text-white rounded-full py-2 px-6 text-sm font-bold">Customize Now</span>
+</div>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Nylon Lanyards</h4>
+<p class="text-[11px] text-secondary mb-2 uppercase font-semibold">16 Colors Available</p>
+<p class="text-primary font-bold">From $0.89 <span class="text-secondary text-xs font-normal">/ea</span></p>
+</a>
+<a href="#" class="group block">
+<div class="aspect-[4/5] bg-[#f5f5f7] rounded-[2rem] overflow-hidden mb-6 relative">
+<img alt="Retractable Badge Reels" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAVf_S9yrQ39VzPl1QLu19l9-jKYBW64qAnr1R21gfFGFFKATFSsdJz216DMt-R_l8jeSt3H03cKczA29J0bAJbeqs8xqbShXGSVzbCwqWmv0kbaYH5YrVmAFsrxYF6hpB-u3IAWkvuGN-B8YZ-PVEtHS0AQsaOZFH5ZQp7A3tHg4RpFPXoMEy76XGYsQ0NFubJEqNW6oEF08XrnYLTqq8SpuGwjP3beNUMGUNMTeejhkVaabmhFpQPku4gWfP4PX4bEX3Pl1BRUHR"/>
+<div class="absolute bottom-4 inset-x-4 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="bg-primary text-white rounded-full py-2 px-6 text-sm font-bold">Customize Now</span>
+</div>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Retractable Badge Reels</h4>
+<p class="text-[11px] text-secondary mb-2 uppercase font-semibold">8 Colors Available</p>
+<p class="text-primary font-bold">From $1.49 <span class="text-secondary text-xs font-normal">/ea</span></p>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-[#0a1628] text-white">
+<div class="max-w-[1400px] mx-auto px-4 pt-16 pb-6 md:px-8 lg:px-16 lg:pt-24">
+<div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+<!-- Brand Column -->
+<div>
+<div class="flex items-center gap-2">
+<img src="logos/SwagPrint-Horizontal-Logo-RGB-Dark.png" alt="SwagPrint" class="h-7 w-auto object-contain brightness-0 invert">
+</div>
+<p class="text-white/50 mt-6 max-w-xs text-sm leading-relaxed">
+Building beautiful and functional branded merchandise experiences. We help startups and businesses create their physical brand presence.
+</p>
+<ul class="mt-8 flex gap-5">
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="Facebook">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="Instagram">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="Twitter / X">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="LinkedIn">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+</a></li>
+<li><a href="#" class="text-white/60 hover:text-white transition" aria-label="TikTok">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+</a></li>
+</ul>
+</div>
+<!-- Link Columns -->
+<div class="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-2">
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Company</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/about-us">About Us</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/faq">FAQ</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/catalogs">Catalogs</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/privacy-policy">Privacy Policy</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/shipping-policy">Shipping Policy</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/terms-conditions">Terms And Conditions</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/contact-us">Contact Us</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/accessibility">Accessibility Statement</a></li>
+</ul>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Customers</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/login">My Account</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/track-order">Track Order</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/how-to-place-purchase-order">Purchase Order</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/free-sample">Free Samples</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/return-policy">Returns Policy</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/submit-artwork">Upload Artwork</a></li>
+</ul>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Resources</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/customer-reviews?t=2">Customer Reviews</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/customer-reviews?t=2">Customer Photos</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/resources">Product Resources</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/product-templates">Product Templates</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/bandbucks">Band Bucks</a></li>
+<li><a class="text-white/60 hover:text-white transition" href="https://www.swagprint.com/blog">Blog</a></li>
+</ul>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest">Contact Us</p>
+<ul class="mt-6 space-y-3 text-sm">
+<li><a class="text-white/60 hover:text-white transition flex items-center gap-2" href="tel:1-844-770-2326"><span class="material-symbols-outlined text-base">phone</span> 1-844-770-2326</a></li>
+<li><a class="text-white/60 hover:text-white transition flex items-center gap-2" href="mailto:sales@swagprint.com"><span class="material-symbols-outlined text-base">mail</span> sales@swagprint.com</a></li>
+<li><a class="text-white/60 hover:text-white transition flex items-center gap-2" href="mailto:support@swagprint.com"><span class="material-symbols-outlined text-base">support_agent</span> support@swagprint.com</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:justify-between text-center text-xs text-white/40">
+<p>&copy; 2025 SwagPrint. All rights reserved.</p>
+<p class="mt-2 sm:mt-0">Architectural Precision in Every Artifact.</p>
+</div>
+</div>
+</footer>
+<script>
+// Style selection interaction placeholder
+</script>
+</body></html>
