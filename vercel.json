@@ -1,0 +1,4 @@
+{
+  "buildCommand": "mkdir -p public && cp *.html public/ && cp -r 'Category Images' public/ && cp -r 'Product Images' public/ && cp -r 'Trust Logos' public/ && cp -r logos public/ && cp screen.png public/ 2>/dev/null; cd design-lab && npm install && npm run build",
+  "outputDirectory": "public"
+}
